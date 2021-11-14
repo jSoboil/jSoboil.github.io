@@ -1,4 +1,4 @@
-### Curriculum vitae
+## **Curriculum vitae**
 
 Seeking to further develop career in the HEOR field. Particularly interested in developing comprehensive cost-effectiveness models and other HTA roles. 
 
@@ -6,8 +6,8 @@ Undergraduate degree provided a mature and holistic understanding of complex soc
 
 Thus, has deep decision modelling skills with high statistical programming proficiency. Experience in varied backgrounds, with a passion for continuous learning, provides a uniquely diverse skill set.
 
-### Education:
-**University of Cape Town**
+### **Education**:
+*University of Cape Town*
 
 MPH, Health Economics
 
@@ -19,7 +19,7 @@ Thesis title: A Framework for Incorporating a Fully Integrated Bayesian Approach
 
 - Research centred on the exploration of a fully-Bayesian decision theoretic approach to Health Economic Decision-Modelling as well as the development of a selection framework for choosing appropriate sensitivity analysis methods in Middle-Income Country contexts. See code repo [here](https://github.com/jSoboil/Dissertation)
 
-**Stellenbosch University**
+*Stellenbosch University*
 
 BA(Hons), Sociology
 
@@ -31,7 +31,7 @@ Thesis title: Astronomy in the Age of Big Data. [Read here](https://cosmopolitan
 
 - Research conducted under the guidance of the South African Research Chair in the Sociology of Land, Environment and Sustainable Development
 
-**Stellenbosch University**
+*Stellenbosch University*
 
 BA, Social Dynamics
 
@@ -43,7 +43,7 @@ Stellenbosch, ZAR
 
 ### Selected Experience:
 
-**Co-Chair: R-HTA in LMICs**
+*Co-Chair: R-HTA in LMICs*
 
 R-HTA
 
@@ -55,7 +55,7 @@ July 2021 - present
 - [R-HTA](https://r-hta.org/) is a consortium aimed at popularising R for health economics and health technology assessment (HTA)
 - Personally developed quarterly workshops, teaching basic to advanced health economic decision modelling topics
 
-**Associate Consultant**
+*Associate Consultant*
 
 IQVIA
 
@@ -67,7 +67,7 @@ Jan 2021 - present
 - Developed broad knowledge of HTA review process across several jurisdictions, including the UK and EU
 - Supported design and development of new technology solutions for HTA stakeholders
 
-**Consultant**
+*Consultant*
 
 Cipla Foundation
 
@@ -78,7 +78,7 @@ Dec 2020 - Dec 2020
 - Reported on seasonal health care trends and other data analytic insights associated with Cipla Foundation's Shapleft clinics
 - Provided recommendations on improving database management as well the data compliance of the Shapleft clinic programme
 
-**Development Director**
+*Development Director*
 
 Periods For Hope
 
@@ -89,7 +89,7 @@ Jan 2019 - Dec 2020
 - A registered NPO (226-728) focused on the reduction of period poverty and stigma
 - Focused on capacity development and establishment of sustainable funding networks
 
-**Associate Consultant**
+*Associate Consultant*
 
 Freedom House
 
@@ -100,5 +100,5 @@ Sep 2018 - Mar 2019
 - Reviewed South African Community Based Monitoring (CBM) tools; both local and national levels
 - Qualitative research role
 
-### Download CV:
+### **Download CV**:
 Please download a more comprehensive .pdf version of my CV [here](https://github.com/jSoboil/CV/blob/master/CV.pdf).
