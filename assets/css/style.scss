@@ -2,3 +2,15 @@
 ---
 
 @import "{{ site.theme }}";
+
+.btn {
+    color: #13294B;
+    border-color: #13294B;
+    background-color: #F8FAFC;
+}
+
+.btn:hover {
+    color: #F8FAFC;
+    border-color: #13294B;
+    background-color: #13294B;
+}
