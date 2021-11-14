@@ -4,7 +4,7 @@
 // Headers
 $header-heading-color: #F5F6F7 !default;
 $header-bg-color: #F5F6F7 !default;
-$header-bg-color-secondary: #F8FAFC !default;
+$header-bg-color-secondary: #F5F6F7 !default;
 
 // Text
 $section-headings-color: #F5F6F7 !default;
@@ -17,11 +17,11 @@ $blockquote-text-color: #F5F6F7 !default;
 .btn {
     color: #F5F6F7;
     border-color: #F5F6F7;
-    background-color: #F8FAFC;
+    background-color: #F5F6F7;
 }
 
 .btn:hover {
-    color: #F8FAFC;
-    border-color: #13294B;
-    background-color: #13294B;
+    color: #F5F6F7;
+    border-color: #F5F6F7;
+    background-color: #F5F6F7;
 }
