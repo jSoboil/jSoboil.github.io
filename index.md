@@ -1,6 +1,6 @@
 ### Some Bytes About Me
 <a href="thumbnail">
-  <img align = "right" height = "400px" width = "350px" src = "img/siteLogo.png" />
+  <img align = "right" height = "450px" width = "400px" src = "img/siteLogo.png" />
   </a>
 
 Joshua Soboil enjoys problem solving and he has developed a special love for evidence synthesis and advanced health economic decision-modelling techniques, using languages such as [BUGS](https://en.wikipedia.org/wiki/OpenBUGS)/[JAGS](https://en.wikipedia.org/wiki/Just_another_Gibbs_sampler) and [Stan](https://en.wikipedia.org/wiki/Stan_(software)) coupled with [R](https://en.wikipedia.org/wiki/R_(programming_language)).
@@ -9,4 +9,4 @@ For some added bytes, Joshua also encourages the use of R for HTA. An extensive 
 
 ### Contact
 
-For any inquiries, contact Joshua via [LinkedIn](https://www.linkedin.com/in/joshua-soboil-067351172/).
+For inquiries, contact Joshua via [LinkedIn](https://www.linkedin.com/in/joshua-soboil-067351172/).
