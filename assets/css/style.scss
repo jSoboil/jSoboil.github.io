@@ -1,20 +1,14 @@
 ---
 ---
+
 // Headers
 $header-heading-color: #2E5266 !default;
 $header-bg-color: #6E8898 !default;
 $header-bg-color-secondary: #9FB1BC !default;
+// Text
+$section-headings-color: #FF552E !default;
+$body-text-color: #13294B !default;
+$body-link-color: #009FD4 !default;
+$blockquote-text-color: #4D69A0 !default;
 
 @import "{{ site.theme }}";
-
-.btn {
-    color: #13294B;
-    border-color: #13294B;
-    background-color: #F8FAFC;
-}
-
-.btn:hover {
-    color: #F8FAFC;
-    border-color: #13294B;
-    background-color: #13294B;
-}
