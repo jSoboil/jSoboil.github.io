@@ -1,2 +1,2 @@
 # Website repository:
-This is the main repository for Joshua Soboil's website. You can find the website [here](https://jsoboil.github.io/). If you'd like to contact Joshua directly, please message him on [LinkedIn](https://www.linkedin.com/in/joshua-soboil-067351172/).
+Main repository for Joshua Soboil's website. You can find the website [here](https://jsoboil.github.io/). If you'd like to contact Joshua directly, please message him on [LinkedIn](https://www.linkedin.com/in/joshua-soboil-067351172/).
