@@ -1,1 +1,1 @@
-<object data="https://github.com/jSoboil/CV/blob/master/CV.pdf" width="1000" height="1000" type='application/pdf'></object>
+<object data="https://github.com/jSoboil/jSoboil.github.io/tree/main/img/CV.pdf" width="1000" height="1000" type='application/pdf'></object>
