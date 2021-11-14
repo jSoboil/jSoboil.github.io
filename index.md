@@ -1,4 +1,4 @@
-### About
+### Some Bytes About Me
 <a href="thumbnail">
   <img align = "right" height = "300px" width = "220px" src = "img/siteLogo.png" />
   </a>
