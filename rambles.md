@@ -1,2 +1,2 @@
 ### Rambles
-Some intermittent thoughts, primarily technical lessons.
+Some intermittent thoughts, primarily technical.
