@@ -1,14 +1,24 @@
 ---
 ---
-
 // Headers
 $header-heading-color: #2E5266 !default;
-$header-bg-color: #6E8898 !default;
-$header-bg-color-secondary: #9FB1BC !default;
+$header-bg-color: #159957 !default;
+$header-bg-color-secondary: #155799 !default;
+
 // Text
-$section-headings-color: #141414 !default;
-$body-text-color: #262629 !default;
-$body-link-color: #4542ff !default;
-$blockquote-text-color: #8a8a9e !default;
+$section-headings-color: #159957 !default;
+$body-text-color: #606c71 !default;
+$body-link-color: #1e6bb8 !default;
+$blockquote-text-color: #819198 !default;
+
+// Headers
+// $header-heading-color: #2E5266 !default;
+// $header-bg-color: #6E8898 !default;
+// $header-bg-color-secondary: #9FB1BC !default;
+// Text
+// $section-headings-color: #141414 !default;
+// $body-text-color: #262629 !default;
+// $body-link-color: #4542ff !default;
+// $blockquote-text-color: #8a8a9e !default;
 
 @import "{{ site.theme }}";
