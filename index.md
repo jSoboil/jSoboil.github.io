@@ -1,11 +1,9 @@
-## jSoboil
-
-### Bytes About Me
+## Bytes About Me
 <a href="thumbnail">
-  <img align = "right" height = "180px" width = "150px" src = "siteLogo.png" />
+  <img align = "right" height = "230px" width = "180px" src = "siteLogo.png" />
   </a>
 
-Hi! I practice health economics, with a focus on Health Technology Assessment (HTA). Because I enjoy problem solving, I have developed a special love for evidence synthesis and advanced health economic decision-modelling, using languages such as [BUGS](https://en.wikipedia.org/wiki/OpenBUGS)/[JAGS](https://en.wikipedia.org/wiki/Just_another_Gibbs_sampler) and [Stan](https://en.wikipedia.org/wiki/Stan_(software)) coupled with [R](https://en.wikipedia.org/wiki/R_(programming_language)). Hence, I am particularly interested in developing comprehensive cost-effectiveness models and other decision-modelling techniques.
+Hi! Since I enjoy problem solving, I have developed a special love for evidence synthesis and advanced health economic decision-modelling, using languages such as [BUGS](https://en.wikipedia.org/wiki/OpenBUGS)/[JAGS](https://en.wikipedia.org/wiki/Just_another_Gibbs_sampler) and [Stan](https://en.wikipedia.org/wiki/Stan_(software)) coupled with [R](https://en.wikipedia.org/wiki/R_(programming_language)). Hence, I am particularly interested in developing comprehensive cost-effectiveness models and other decision-modelling techniques.
 
 For some added personal bytes, I encourage the use of R for HTA. An extensive health economics R community has risen over the past several years. If you are interested, [BCEA](https://github.com/giabaio/BCEA) and [DARTH](https://github.com/DARTH-git) are great R packages which have been specifically created for health economic decision-modelling. Also, R-HTA and DARTH are organisations which promote R and provide extensive tutorials on how to use the language for HTA. My own work includes the ongoing development of a sensitivity analysis framework for Lower and Middle-Income Country (LMIC) HTA analysts. A case study to support the framework can be found [here](https://github.com/jSoboil/Dissertation). I am also a founding member of [R-HTA in LMICs](https://twitter.com/rhta_lmics), a chapter of the main R-HTA consortium. The chapter aims to introduce and showcase the strengths of R programming to HTA analysts and health institutions in LMICs.
 
