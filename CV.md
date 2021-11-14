@@ -1,5 +1,4 @@
 ## **Curriculum vitae**
-
 Seeking to further develop career in the HEOR field. Particularly interested in developing comprehensive cost-effectiveness models and other HTA roles. 
 
 Undergraduate degree provided a mature and holistic understanding of complex socio-economic systems. An eye for detail coupled with deep intrigue for statistics and economics spurred on the development of skills over and above required for Master's.
@@ -20,7 +19,6 @@ Thesis title: A Framework for Incorporating a Fully Integrated Bayesian Approach
 - Research centred on the exploration of a fully-Bayesian decision theoretic approach to Health Economic Decision-Modelling as well as the development of a selection framework for choosing appropriate sensitivity analysis methods in Middle-Income Country contexts. See code repo [here](https://github.com/jSoboil/Dissertation)
 
 *Stellenbosch University*
-
 BA(Hons), Sociology
 
 Stellenbosch, ZAR
@@ -32,7 +30,6 @@ Thesis title: Astronomy in the Age of Big Data. [Read here](https://cosmopolitan
 - Research conducted under the guidance of the South African Research Chair in the Sociology of Land, Environment and Sustainable Development
 
 *Stellenbosch University*
-
 BA, Social Dynamics
 
 Stellenbosch, ZAR
@@ -42,7 +39,6 @@ Stellenbosch, ZAR
 - Majors in Sociology and Psychology, with a minor in Philosophy and exposure to undergraduate economics
 
 ### **Selected Experience**:
-
 *Co-Chair: R-HTA in LMICs*
 
 R-HTA
@@ -56,7 +52,6 @@ July 2021 - present
 - Personally developed quarterly workshops, teaching basic to advanced health economic decision modelling topics
 
 *Associate Consultant*
-
 IQVIA
 
 Cape Town, ZAR
@@ -68,7 +63,6 @@ Jan 2021 - present
 - Supported design and development of new technology solutions for HTA stakeholders
 
 *Consultant*
-
 Cipla Foundation
 
 Cape Town, ZAR
@@ -79,7 +73,6 @@ Dec 2020 - Dec 2020
 - Provided recommendations on improving database management as well the data compliance of the Shapleft clinic programme
 
 *Development Director*
-
 Periods For Hope
 
 Cape Town, ZAR
@@ -90,7 +83,6 @@ Jan 2019 - Dec 2020
 - Focused on capacity development and establishment of sustainable funding networks
 
 *Associate Consultant*
-
 Freedom House
 
 Cape Town, ZAR
