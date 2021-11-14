@@ -1,24 +1,13 @@
 ---
 ---
-
 // Headers
-$header-heading-color: #2E5266 !default;
-$header-bg-color: #6E8898 !default;
-$header-bg-color-secondary: #9FB1BC !default;
+$header-heading-color: #f0f0f0 !default;
+$header-bg-color: #acbac2 !default;
+$header-bg-color-secondary: #6a8494 !default;
 // Text
-$section-headings-color: #141414 !default;
-$body-text-color: #262629 !default;
-$body-link-color: #4542ff !default;
-$blockquote-text-color: #8a8a9e !default;
+$section-headings-color: #000001 !default;
+$body-text-color: #47474d !default;
+$body-link-color: #3e3e7d !default;
+$blockquote-text-color: #93939e !default;
 
 @import "{{ site.theme }}";
-
-// Headers
-$header-heading-color: #2E5266 !default;
-$header-bg-color: #6E8898 !default;
-$header-bg-color-secondary: #9FB1BC !default;
-// Text
-$section-headings-color: #141414 !default;
-$body-text-color: #262629 !default;
-$body-link-color: #4542ff !default;
-$blockquote-text-color: #8a8a9e !default;
