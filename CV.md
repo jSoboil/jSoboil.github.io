@@ -1,1 +1,1 @@
-<object data="https://github.com/jSoboil/jSoboil.github.io/tree/main/img/CV.pdf" width="1000" height="1000" type='application/pdf'></object>
+<iframe src="https://docs.google.com/gview?url=https://github.com/jSoboil/jSoboil.github.io/blob/main/img/CV.pdf.pdf&embedded=true" style="width:600px; height:500px;" frameborder="0"></iframe>
