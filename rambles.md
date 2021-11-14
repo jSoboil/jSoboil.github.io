@@ -1,4 +1,4 @@
 ## **Rambles**
 *Some intermittent thoughts, primarily technical*.
 
-### **Some reflections on number theory**:
+### Reflections on number theory (14-11-21):
