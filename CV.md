@@ -6,12 +6,9 @@ Undergraduate degree provided a mature and holistic understanding of complex soc
 Thus, has deep decision modelling skills with high statistical programming proficiency. Experience in varied backgrounds, with a passion for continuous learning, provides a uniquely diverse skill set.
 
 ---
-
+<body>
 ### **Education**:
-#### University of Cape Town
-
-#### MPH, Health Economics
-
+#### MPH, Health Economics (University of Cape Town)
 Cape Town, ZA
 
 2019 - 2020
@@ -20,9 +17,7 @@ Thesis title: A Framework for Incorporating a Fully Integrated Bayesian Approach
 
 - Research centred on the exploration of a fully-Bayesian decision theoretic approach to Health Economic Decision-Modelling as well as the development of a selection framework for choosing appropriate sensitivity analysis methods in Middle-Income Country contexts. See code repo [here](https://github.com/jSoboil/Dissertation)
 
-#### Stellenbosch University
-#### BA(Hons), Sociology
-
+#### BA(Hons), Sociology (Stellenbosch University)
 Stellenbosch, ZA
 
 2018
@@ -32,9 +27,7 @@ Thesis title: Astronomy in the Age of Big Data. [Read here](https://cosmopolitan
 - Research conducted under the guidance of the South African Research Chair in the Sociology of Land, Environment and Sustainable Development
 
 
-#### Stellenbosch University
-#### BA, Social Dynamics
-
+#### BA, Social Dynamics (Stellenbosch University)
 Stellenbosch, ZA
 
 2014 - 2017
@@ -42,11 +35,11 @@ Stellenbosch, ZA
 - Majors in Sociology and Psychology, with a minor in Philosophy and exposure to undergraduate economics
 
 ---
+</body>
 
+<body>
 ### **Selected Experience**:
-#### Co-Chair: R-HTA in LMICs
-
-#### R-HTA
+#### Co-Chair: R-HTA in LMICs (R-HTA)
 
 r-hta.org, Online
 
@@ -56,9 +49,7 @@ July 2021 - present
 - [R-HTA](https://r-hta.org/) is a consortium aimed at popularising R for health economics and health technology assessment (HTA)
 - Personally developed quarterly workshops, teaching basic to advanced health economic decision modelling topics
 
-#### Associate Consultant
-#### IQVIA
-
+#### Associate Consultant (IQVIA)
 Cape Town, ZAR
 
 Jan 2021 - present
@@ -67,9 +58,7 @@ Jan 2021 - present
 - Developed broad knowledge of HTA review process across several jurisdictions, including the UK and EU
 - Supported design and development of new technology solutions for HTA stakeholders
 
-#### Consultant
-#### Cipla Foundation
-
+#### Consultant (Cipla Foundation)
 Cape Town, ZAR
 
 Dec 2020 - Dec 2020
@@ -77,25 +66,25 @@ Dec 2020 - Dec 2020
 - Reported on seasonal health care trends and other data analytic insights associated with Cipla Foundation's Shapleft clinics
 - Provided recommendations on improving database management as well the data compliance of the Shapleft clinic programme
 
-#### Development Director
-#### Periods For Hope
+#### Development Director ( Periods For Hope)
 
 Cape Town, ZAR
 
 Jan 2019 - Dec 2020
 
-- A registered NPO (226-728) focused on the reduction of period poverty and stigma
-- Focused on capacity development and establishment of sustainable funding networks
+- A registered, student-led NPO (226-728) aimed at reducing period poverty and stigma
+- Personally focused on capacity development and establishment of sustainable funding networks
 
-#### Associate Consultant
-#### Freedom House
-
+#### Associate Consultant (Freedom House)
 Cape Town, ZAR
 
 Sep 2018 - Mar 2019
 
 - Reviewed South African Community Based Monitoring (CBM) tools; both local and national levels
 - Qualitative research role
+</body>
+
+---
 
 ### **Download CV**:
 Please download a more comprehensive .pdf version of my CV [here](https://github.com/jSoboil/CV/blob/master/CV.pdf).
