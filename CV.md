@@ -34,8 +34,6 @@ Stellenbosch, ZA
 
 - Majors in Sociology and Psychology, with a minor in Philosophy and exposure to undergraduate economics
 
----
-
 ### **Selected Experience**:
 #### Co-Chair: R-HTA in LMICs (R-HTA)
 
