@@ -1,3 +1,8 @@
-<a href="CV">
-<embed src = "img/CV.pdf" />
-</a>
+<embed
+    src="/img/CV"
+    type="application/pdf"
+    frameBorder="0"
+    scrolling="auto"
+    height="100%"
+    width="100%"
+></embed>
