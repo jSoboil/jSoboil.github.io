@@ -1,3 +1,3 @@
 <a href="CV">
-  <img src = "img/CV.pdf" />
-  </a>
+<embed src = "img/CV.pdf" />
+</a>
