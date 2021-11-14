@@ -3,7 +3,7 @@
 ### About me
 
 <a href="thumbnail">
-  <img align = "right" height = "400px" width = "300px" src = "siteLogo.png" />
+  <img align = "right" height = "200px" width = "180px" src = "siteLogo.png" />
   </a>
 
 Hi! I practice health economics, with a focus on Health Technology Assessment (HTA). Because I enjoy problem solving, I have developed a special love for evidence synthesis and advanced health economic decision-modelling, using languages such as [BUGS](https://en.wikipedia.org/wiki/OpenBUGS)/[JAGS](https://en.wikipedia.org/wiki/Just_another_Gibbs_sampler) and [Stan](https://en.wikipedia.org/wiki/Stan_(software)) coupled with [R](https://en.wikipedia.org/wiki/R_(programming_language)). Hence, I am particularly interested in developing comprehensive cost-effectiveness models and other decision-modelling techniques.
