@@ -7,3 +7,9 @@ $header-bg-color: #5885AF !default;
 $header-bg-color-secondary: #41729F !default;
 
 @import "{{ site.theme }}";
+
+.btn:hover {
+    color: #274472;
+    border-color: #5885AF;
+    background-color: #41729F;
+}
