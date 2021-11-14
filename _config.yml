@@ -1,7 +1,8 @@
 title: jSoboil
 description: Personal website of Joshua Soboil
 show_downloads: false
-google_analytics:
+is_project_page: true
+google_analytics: false
 theme: jekyll-theme-cayman
 github:
-  repository_name: https://github.com/jSoboi
+  repository_url: https://github.com/jSoboil
