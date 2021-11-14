@@ -1,7 +1,5 @@
-<iframe
-    src="https://github.com/jSoboil/jSoboil.github.io/blob/main/img/CV.pdf#toolbar=0&scrollbar=0"
-    frameBorder="0"
-    scrolling="auto"
-    height="100%"
-    width="100%"
-></iframe>
+<object data="https://github.com/jSoboil/CV/blob/master/CV.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/jSoboil/CV/blob/master/CV.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/jSoboil/CV/blob/master/CV.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
