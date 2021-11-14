@@ -8,6 +8,7 @@ Thus, has deep decision modelling skills with high statistical programming profi
 ---
 
 ### **Education**:
+
 #### MPH, Health Economics (University of Cape Town)
 Cape Town, ZA
 
@@ -35,6 +36,7 @@ Stellenbosch, ZA
 - Majors in Sociology and Psychology, with a minor in Philosophy and exposure to undergraduate economics
 
 ### **Selected Experience**:
+
 #### Co-Chair: R-HTA in LMICs (R-HTA)
 
 r-hta.org, Online
