@@ -1,0 +1,14 @@
+name: "jSoboil"
+navbar:
+  title: "Hello World"
+  left:
+    - text: "Home"
+      href: index.html
+  right: 
+    - icon: fa-envelope fa-lg
+      href: mailto:<soboil.joshua@gmail.com>
+    - icon: fa-github fa-lg
+      href: http://github.com/<jSoboil>/
+output:
+  html_document:
+    theme: cosmo
