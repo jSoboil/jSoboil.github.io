@@ -8,15 +8,15 @@ $header-bg-color-secondary: #F8FAFC !default;
 
 // Text
 $section-headings-color: #FF552E !default;
-$body-text-color: #13294B !default;
-$body-link-color: #009FD4 !default;
+$body-text-color: #111824 !default;
+$body-link-color: #005eff !default;
 $blockquote-text-color: #4D69A0 !default;
 
 @import "{{ site.theme }}";
 
 .btn {
-    color: #13294B;
-    border-color: #13294B;
+    color: #F5F6F7;
+    border-color: #F5F6F7;
     background-color: #F8FAFC;
 }
 
