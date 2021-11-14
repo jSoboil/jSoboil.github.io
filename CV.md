@@ -6,7 +6,7 @@ Undergraduate degree provided a mature and holistic understanding of complex soc
 Thus, has deep decision modelling skills with high statistical programming proficiency. Experience in varied backgrounds, with a passion for continuous learning, provides a uniquely diverse skill set.
 
 ---
-<body>
+
 ### **Education**:
 #### MPH, Health Economics (University of Cape Town)
 Cape Town, ZA
@@ -35,9 +35,7 @@ Stellenbosch, ZA
 - Majors in Sociology and Psychology, with a minor in Philosophy and exposure to undergraduate economics
 
 ---
-</body>
 
-<body>
 ### **Selected Experience**:
 #### Co-Chair: R-HTA in LMICs (R-HTA)
 
@@ -82,7 +80,6 @@ Sep 2018 - Mar 2019
 
 - Reviewed South African Community Based Monitoring (CBM) tools; both local and national levels
 - Qualitative research role
-</body>
 
 ---
 
