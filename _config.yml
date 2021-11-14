@@ -3,3 +3,5 @@ description: Personal website of Joshua Soboil
 show_downloads: true
 google_analytics:
 theme: jekyll-theme-cayman
+github:
+  github_url: https://github.com/jSoboi
