@@ -37,7 +37,7 @@ Stellenbosch, ZA
 
 ### **Selected Experience**:
 
-#### Co-Chair: R-HTA in LMICs (R-HTA)
+#### Co-Chair (R-HTA in LMICs)
 
 r-hta.org, Online
 
@@ -64,7 +64,7 @@ Dec 2020 - Dec 2020
 - Reported on seasonal health care trends and other data analytic insights associated with Cipla Foundation's Shapleft clinics
 - Provided recommendations on improving database management as well the data compliance of the Shapleft clinic programme
 
-#### Development Director ( Periods For Hope)
+#### Development Director (Periods For Hope)
 
 Cape Town, ZAR
 
