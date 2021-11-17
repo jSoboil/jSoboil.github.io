@@ -77,17 +77,23 @@ $$a\times (b + c) = a\times b + a\times c$$
 
 Notice that the equation $$(b + c)\times a = b\times a + c\times a$$ is also true according to P8. Notably, the importance of P9 is shown by determining why $$a - b = b - a$$ only holds when $$a = b$$:
 
-$$\text{If}\ a - b = b - a$$
+$$\text{If}\ 
+a - b = b - a$$
 
-$$\text{then}\ (a - b) + b = (b - a) + b = b + (b - a)$$
+$$\text{then}\ 
+(a - b) + b = (b - a) + b = b + (b - a)$$
 
-$$\text{hence}\ a = b + b - a$$
+$$\text{hence}\ 
+a = b + b - a$$
 
-$$\text{and hence}\ a + a = (b + b -a) + a = b + b$$
+$$\text{and hence}\ 
+a + a = (b + b -a) + a = b + b$$
 
-$$\text{Consequently}\ a\times (1 + 1) = b\times (1 + 1)$$
+$$\text{Consequently}\ 
+a\times (1 + 1) = b\times (1 + 1)$$
 
-and so $$a = b$$
+$$\text{and so}\ 
+a = b$$
 
 A second use of P9 is the justification of the assertion that $$a\times 0 = 0$$. We have
 
