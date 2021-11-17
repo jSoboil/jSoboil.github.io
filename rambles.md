@@ -79,24 +79,37 @@ Notice that the equation $$(b + c)\times a = b\times a + c\times a$$ is also tru
 
 Notably, the importance of P9 is shown by determining when $$a - b = b - a$$:
 
-If $$a - b = b - a$$
+If 
 
-then $$(a - b) + b = (b - a) + b = b + (b - a)$$;
+$$a - b = b - a$$
 
-hence $$a = b + b - a$$;
+then 
 
-hence $$a + a = (b + b -a) + a = b + b$$
+$$(a - b) + b = (b - a) + b = b + (b - a)$$;
 
-Consequently $$a\times (1 + 1) = b\times (1 + 1)$$
+hence 
+
+$$a = b + b - a$$;
+
+hence
+
+$$a + a = (b + b -a) + a = b + b$$
+
+Consequently
+
+$$a\times (1 + 1) = b\times (1 + 1)$$
 
 and so $$a = b$$
 
-A second use of P9 is the justification of the assertation that $$a\times 0 = 0$$. We have
+A second use of P9 is the justification of the assertion that $$a\times 0 = 0$$. We have
 
 $$ a\times 0 + a\times 0 = a\times (0 + 0)$$
+
 $$ = a\times 0$$
 
-which immediately implies (by adding $$-(a\times 0)$$ to both sides) that $$a\times 0 = 0$$.
+which immediately implies (by adding $$-(a\times 0)$$ to both sides) that 
+
+$$a\times 0 = 0$$.
 
 Even more interesting, is that P9 can helo explain why the product of two negative numbers is positive. To begin, note that
 
