@@ -4,9 +4,9 @@ Some intermittent thoughts, primarily technical.
 ---
 
 ### *Reflections on the basic properties of numbers:*
-There are certain things I sometimes wish I had learned in school. But, perhaps I wouldn't have understood it then. Now that I am older, and have unexpectedly developed a deep intrigue for mathematics, perhaps my ability to appreciate some basic mathematical proofs has grown. Undoubtedly, it is the latter.
+There are certain things I sometimes wish I had learned in school. Maybe I wouldn't have understood it then however, due to my ADD which usually got in the way of me listening. Perhaps it was the teacher who was boring. Truthfully though, I usually found myself thinking of other things besides mathematics, as you can imagine. It is, of course, one of the mainstays of [ADD](https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder#Signs_and_symptoms). But, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
 
-I am currently working through the 4th Ed. of Michael Spivak's '*Calculus*'. Spivak presents calculus beautifully, with great prose. Importantly, I believe, is Spivak's implicit mathematical message: it is an art that rewards playfulness and tinkering. But, to return back to the meaning of this post, I thought it would be good to share and revise the 'basic properties of numbers' or, more specifically, arithmetic.
+Hence, I am currently working through the 4th Ed. of Michael Spivak's '*Calculus*'. Spivak presents calculus beautifully, with great prose. Importantly, I think, is his implicit mathematical message: it is an art that rewards playfulness and tinkering. But, to return back to the point of this post (it's title), I thought it would be good to share and revise the 'basic properties of numbers' or, more specifically, the basic rules of arithmetic.
 
 #### Property 1: the associative law for addition
 If $$a$$, $$b$$, and $$c$$ are any numbers, then
@@ -35,3 +35,12 @@ If $$a$$ and $$b$$ are any numbers, then
 $$a + b = b + a$$
 
 which emphasis that the operation of addition of pairs of numbers does not depend on the order of addition. However, not all operations are alike, for example $$a - b \not= b - a$$. Interestingly, $$a - b = b - a$$ only when $$a = b$$!
+
+However, to go further, into multiplication and division, we need a little more.
+
+#### Property 5: the associative law for multiplication
+Fortunately, Spivak notes, the basic properties of multiplication are so similar to those for addition that both the meaning and the consequences should be clear.
+
+If $$a$$, $$b$$, and $$c$$ are any numbers, then
+
+$$a\times (b\times c) = (a\times b)\times c$$
