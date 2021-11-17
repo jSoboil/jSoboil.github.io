@@ -85,11 +85,11 @@ $$a - b = b - a$$
 
 then 
 
-$$(a - b) + b = (b - a) + b = b + (b - a)$$;
+$$(a - b) + b = (b - a) + b = b + (b - a)$$
 
 hence 
 
-$$a = b + b - a$$;
+$$a = b + b - a$$
 
 hence
 
