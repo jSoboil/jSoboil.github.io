@@ -97,11 +97,11 @@ a = b$$
 
 A second use of P9 is the justification of the assertion that $$a\times 0 = 0$$. We have
 
-$$ a\times 0 + a\times 0 = a\times (0 + 0)$$
+$$a\times 0 + a\times 0 = a\times (0 + 0)$$
 
 $$ = a\times 0$$
 
-which immediately implies (by adding $$-(a\times 0)$$ to both sides) that 
+which immediately implies (by adding $$-(a\times 0)$$ to both sides) that
 
 $$a\times 0 = 0$$.
 
