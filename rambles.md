@@ -21,7 +21,7 @@ $$a + 0 = 0 + a = a$$
 Following from this, an important role is also played by 0 in the third property.
 
 #### Property 3: the existence of additive inverses
-For every number a, there is a number $$-a$$ such that
+For every number $$a$$, there is a number $$-a$$ such that
 
 $$a + (-a) = (-a) + a = 0$$
 
@@ -56,7 +56,7 @@ Moreover,
 
 $$1 \not= 0$$
 
-As Spivak notes, this assertion may seem strange but it is important because it is not possible to prove the property otherwise. As below, $$a/0$$ is undefined, hence the assertion.
+As Spivak notes, this assertion may seem strange but it is important because it is not possible to prove the property otherwise. As below, $$\frac{a}{0}$$ is undefined, hence the assertion.
 
 #### Property 7: the existence of multiplicative inverses
 For every number $$a \not= 0$$, there is a number $$a^{-1}$$ such that
@@ -75,29 +75,17 @@ Finally, if $$a$$, $$b$$, and $$c$$ are any numbers, then
 
 $$a\times (b + c) = a\times b + a\times c$$
 
-Notice that the equation $$(b + c)\times a = b\times a + c\times a$$ is also true according to P8.
+Notice that the equation $$(b + c)\times a = b\times a + c\times a$$ is also true according to P8. Notably, the importance of P9 is shown by determining why $$a - b = b - a$$ only holds when $$a = b$$:
 
-Notably, the importance of P9 is shown by determining when $$a - b = b - a$$:
+$$\text{If} a - b = b - a$$
 
-If 
+$$\text{then} (a - b) + b = (b - a) + b = b + (b - a)$$
 
-$$a - b = b - a$$
+$$\text{hence} a = b + b - a$$
 
-then 
+$$\text{and hence} a + a = (b + b -a) + a = b + b$$
 
-$$(a - b) + b = (b - a) + b = b + (b - a)$$
-
-hence 
-
-$$a = b + b - a$$
-
-hence
-
-$$a + a = (b + b -a) + a = b + b$$
-
-Consequently
-
-$$a\times (1 + 1) = b\times (1 + 1)$$
+$$\text{Consequently} a\times (1 + 1) = b\times (1 + 1)$$
 
 and so $$a = b$$
 
