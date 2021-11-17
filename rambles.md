@@ -10,4 +10,4 @@ I am currently working through the 4th Ed. of Michael Spivak's '*Calculus*'. Spi
 
 #### Property 1: the associative law for addition
 If $$a$$, $$b$$, and $$c$$ are any numbers, then
-$$\begin{center}a + (b+c) = (a+b) + c\end{center}$$
+$$a + (b+c) = (a+b) + c$$
