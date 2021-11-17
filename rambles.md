@@ -105,7 +105,7 @@ which immediately implies (by adding $$-(a\times 0)$$ to both sides) that
 
 $$a\times 0 = 0$$.
 
-Even more interesting, is that P9 can help explain why the product of two negative numbers is positive. To begin, note that
+Even more interesting, P9 can help explain why the product of two negative numbers is positive. To begin, we note that
 
 $$ (-a)\times b + a\times b = [(-a) + a]\times b$$
 
