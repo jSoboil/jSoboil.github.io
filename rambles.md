@@ -4,7 +4,7 @@ Some intermittent thoughts, primarily technical.
 ---
 
 ### *Reflections on the basic properties of numbers:*
-There are things I wish I had learned in school. Maybe I wouldn't have understood it then however, due to my ADD which usually got in the way of me listening. Perhaps it was the teacher who was boring. Truthfully though, I usually found myself thinking of other things besides mathematics, as you can imagine. It is, of course, one of the hallmarks of [ADD](https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder#Signs_and_symptoms). Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
+There are things I wish I had learned in school. Maybe I wouldn't have understood it then however, due to my ADD which usually got in the way of me listening. Perhaps it was the teacher who was boring. Truthfully, I often found myself thinking of other things besides mathematics, as you can imagine. It is, of course, one of the hallmarks of [ADD](https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder#Signs_and_symptoms). Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
 
 Hence, I am currently working through the 4th Ed. of Michael Spivak's [*'Calculus'*](https://www.amazon.com/Calculus-4th-Michael-Spivak/dp/0914098918). Spivak presents calculus beautifully, with great prose. Importantly, I think, is his implicit mathematical message: it is an art that rewards playfulness and tinkering. But, to return back to the point of this post (it's title), I thought it would be good to share and revise the 'basic properties of numbers' or, more specifically, the basic rules of arithmetic.
 
@@ -21,13 +21,13 @@ $$a + 0 = 0 + a = a$$
 Following from this, an important role is also played by 0 in the third property.
 
 #### Property 3: the existence of additive inverses
-For every number a, there is a number -a sich that
+For every number a, there is a number $$-a$$ such that
 
 $$a + (-a) = (-a) + a = 0$$
 
-Thus, additive inverses are simply the addition of the negative, i.e. $$+ (-a)$$. It is therefore convenient to regard subtraction as an operation derived from addition. This means $$a - b$$ is an implicit abbreviation for $$a + (-b)$$. 
+Thus, additive inverses are simply the addition of the negative, i.e. $$+ (-a)$$. It is therefore convenient to regard subtraction as an operation derived from addition. This means $$a - b$$ is often an implicit abbreviation for $$a + (-b)$$. 
 
-There now remains only one property of basic addition.
+There now remains only one remaining property for basic addition.
 
 #### Property 4: the commutative law for addition
 If $$a$$ and $$b$$ are any numbers, then
@@ -45,7 +45,7 @@ If $$a$$, $$b$$, and $$c$$ are any numbers, then
 
 $$a\times (b\times c) = (a\times b)\times c$$
 
-This leads to to the existence of an identity for muliplication rules...
+This leads to to the existence of an identity for multiplication rules...
 
 #### Property 6: the existence of a multiplicative identity
 If $$a$$ is any number, then
@@ -111,7 +111,7 @@ which immediately implies (by adding $$-(a\times 0)$$ to both sides) that
 
 $$a\times 0 = 0$$.
 
-Even more interesting, is that P9 can helo explain why the product of two negative numbers is positive. To begin, note that
+Even more interesting, is that P9 can help explain why the product of two negative numbers is positive. To begin, note that
 
 $$ (-a)\times b + a\times b = [(-a) + a]\times b$$
 
