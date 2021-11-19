@@ -4,7 +4,7 @@ Some intermittent thoughts, primarily technical.
 ---
 
 ### *Reflections on the basic properties of numbers:*
-There are things I wish I had learned in school. Maybe I wouldn't have understood it then however, due to my ADD which usually got in the way of me listening. Perhaps it was the teacher who was boring. Truthfully, I often found myself thinking of other things besides mathematics, as you can imagine. It is, of course, one of the hallmarks of [ADD](https://en.wikipedia.org/wiki/Attention_deficit_hyperactivity_disorder#Signs_and_symptoms). Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
+There are things I wish I had learned in school. Maybe I wouldn't have understood it then however, due to my ADD which usually got in the way of me listening. Perhaps it was the teacher who was boring. Truthfully, I often found myself thinking of other things besides mathematics, as you can imagine. Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
 
 Hence, I am currently working through the 4th Ed. of Michael Spivak's [*'Calculus'*](https://www.amazon.com/Calculus-4th-Michael-Spivak/dp/0914098918). Spivak presents calculus beautifully, with great prose. Importantly, I think, is his implicit mathematical message: it is an art that rewards playfulness and tinkering. But, to return back to the point of this post (it's title), I thought it would be good to share and revise the 'basic properties of numbers' or, more specifically, the basic rules of arithmetic.
 
@@ -77,25 +77,30 @@ $$a\times (b + c) = a\times b + a\times c$$
 
 Notice that the equation $$(b + c)\times a = b\times a + c\times a$$ is also true according to P8. Notably, the importance of P9 is shown by determining why $$a - b = b - a$$ only holds when $$a = b$$:
 
-$$\text{If}\ 
-a - b = b - a$$
+If
 
-$$\text{then}\ 
-(a - b) + b = (b - a) + b = b + (b - a)$$
+$$a - b = b - a$$
 
-$$\text{hence}\ 
-a = b + b - a$$
+then
 
-$$\text{and hence}\ 
-a + a = (b + b -a) + a = b + b$$
+$$(a - b) + b = (b - a) + b = b + (b - a)$$
 
-$$\text{Consequently}\ 
-a\times (1 + 1) = b\times (1 + 1)$$
+hence
 
-$$\text{and so}\ 
-a = b$$
+$$a = b + b - a$$
 
-A second use of P9 is the justification of the assertion that $$a\times 0 = 0$$. We have
+and so
+$$a + a = (b + b -a) + a = b + b$$
+
+Consequently
+
+$$a\times (1 + 1) = b\times (1 + 1)$$
+
+which, with some last bit of basic algebra balancing, shows that
+
+$$a = b$$
+
+A further, second use of P9 is the justification of the assertion that $$a\times 0 = 0$$. First, we have
 
 $$a\times 0 + a\times 0 = a\times (0 + 0)$$
 
