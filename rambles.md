@@ -109,7 +109,7 @@ $$ = a\times 0$$
 
 which immediately implies (by adding $$-(a\times 0)$$ to both sides) that
 
-$$a\times 0 = 0$$.
+$$a\times 0 = 0$$
 
 Even more interesting, P9 can help explain why the product of two negative numbers is positive. To begin, we note that
 
