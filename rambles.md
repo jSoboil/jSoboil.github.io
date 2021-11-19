@@ -89,14 +89,15 @@ hence
 
 $$a = b + b - a$$
 
-and so
+and so,
+
 $$a + a = (b + b -a) + a = b + b$$
 
-Consequently
+Consequently,
 
 $$a\times (1 + 1) = b\times (1 + 1)$$
 
-which, with some last bit of basic algebra balancing, shows that
+which, with some last bit of basic algebra balancing, shows that:
 
 $$a = b$$
 
