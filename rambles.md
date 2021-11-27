@@ -6,7 +6,7 @@ Some intermittent thoughts, primarily technical.
 ### Some basic simulation methods:
 (27th Nov, 2021)
 
-<img src="img/SCwR_book.png" width="200" height="310" align="right" />
+<img src="img/SCwR_book.png" width="210" height="320" align="right" />
 
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's '*Calculus*', I am also working through M. Rizzo's '*Statistical Computing with R*', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the 'Inverse Transform method'.
 
@@ -14,7 +14,7 @@ The inverse transform method for generating random variables is based on the fol
 
 $${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
-Hence if $$U\sim Uniform(0, 1)$$, then for $$x \in \mathbb{R}$$
+Hence if $$U\sim Uniform(0, 1)$$, then for $$x \in \mathbb{R}$$:
 
 $$P({F_x}^{-1}(U) \leq x) = P(\inf{[t: F_X(t) = U}] \leq x)$$
 
@@ -31,7 +31,19 @@ and therefore:
 $$= {F_x}^{-1}(u)$$
 
 which has the same distribution as $$X$$. Thus, this implies that to generate a 
-random observation $$X$$, we can first generate a $$Uniform(0, 1)$$ variate $$y$$ and deliver the inverse value $${F_x}^{-1}(u)$$. Note that the method is easy to apply *provided* that the inverse density function is easy to compute
+random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$ and deliver the inverse value $${F_x}^{-1}(u)$$ before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute.
+
+**A Simple Example:**
+For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}, 0 < x < 1$$. Here the derivative of the density function, or 'cumulative density' is simply $$F_{X}(x) = 3$$ for $$0 < x < 1$$ and $${F_x}^{-1}(u) = u^{1/3}$$
+
+```{r}
+n <- 1000
+u <- runif(n)
+x <- u ^ (1 / 3)
+hist(x, probability = TRUE, main = expression(f(x) == 3 * x ^ 2)) # density hist of sample
+y <- seq(0, 1, 0.1)
+lines(y, 3 * y ^ 2) # density curve f(x) 
+```
 
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
