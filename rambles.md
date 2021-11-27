@@ -12,7 +12,7 @@ After my first post on the basic properties of numbers, I thought I'd delve into
 
 The inverse transform method for generating random variables is based on the following well-know result. If $$X$$ is a continuous random variable with cumulative density function (cdf) $$F_X(x)$$, then $$U = F_X(x) \sim Uniform(0, 1)$$. The inverse transform method then applies the [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform), where the inverse transformation is defined as
 
-$${F_x}^{-1}(u) = \inf{{x: F_X(x) = u}}, 0 < u < 1$$
+$${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
