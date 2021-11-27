@@ -34,7 +34,7 @@ which has the same distribution as $$X$$. Thus, this implies that to generate a
 random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$ and deliver the inverse value $${F_x}^{-1}(u)$$ before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute.
 
 **A Simple Example:**
-For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = 3$$ for $$0 < x < 1$$ and $${F_x}^{-1}(u) = u^{1/3}$$:
+For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = 3$$ for $$0 < x < 1$$ and $${F_x}^{-1}(u) = u^{1/3}$$. The result is coded and ploted below.
 
 ```{r}
 n <- 1000
@@ -44,7 +44,8 @@ hist(x, probability = TRUE, main = expression(f(x) == 3 * x ^ 2)) # density hist
 y <- seq(0, 1, 0.1)
 lines(y, 3 * y ^ 2) # density curve f(x) 
 ```
-<img src="img/cdf_1.png" width="300" height="280" align="right" />
+
+<img src="img/cdf_1.png" width="600" height="540" align="right" />
 
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
