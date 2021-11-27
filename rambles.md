@@ -35,7 +35,7 @@ random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate 
 
 **Some Simple Examples:**
 
-For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and $${F_x}^{-1}(u) = u^{1/3}$$. The result is coded and plotted below:
+For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and so $${F_x}^{-1}(u) = u^{\frac{1}{3}}$$. The result is coded and plotted below:
 
 ```{r}
 n <- 1000
@@ -48,13 +48,13 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 
 <img src="img/cdf_1.png" width="600" height="380" align="left" />
 
-From visual inspection of the plot to the left, we can see that the histogram and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
+From a simple visual inspection of the plot (left), we can observe that the histogram of $$u^{\frac{1}{3}}$$ and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
 We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
 
 If $$X \sim Exp(\lambda)$$, for $$x_{i} > 0$$, the cdf  is
 
-$$F_{X}(x) = 1 - \exp^{-\lambda x}$$
+$$F_{X}(x) = 1 - e^{-\lambda x}$$
 
 The inverse transformation of the cdf is then
 
