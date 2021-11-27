@@ -45,7 +45,7 @@ y <- seq(0, 1, 0.1)
 lines(y, 3 * y ^ 2) # density curve f(x) 
 ```
 
-<img src="img/cdf_1.png" width="620" height="510" align="left" />
+<img src="img/cdf_1.png" width="480" height="360" align="left" />
 
 As shown by visual inspection of the plot to the left, the histogram and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
