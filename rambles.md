@@ -6,7 +6,7 @@ Some intermittent thoughts, primarily technical.
 ### Some basic simulation methods:
 (27th Nov, 2021)
 
-<img src="img/SCwR_book.png" width="210" height="320" align="right" />
+<img src="img/SCwR_book.png" width="200" height="300" align="right" />
 
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's '[Statistical Computing with R](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324)', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
 
@@ -51,7 +51,7 @@ As shown by visual inspection of the plot to the left, the histogram and density
 
 We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
 
-And so, if $$X \sim Exp(\lambda)$$, for $$x_{i} > 0$$, the cdf  is
+If $$X \sim Exp(\lambda)$$, for $$x_{i} > 0$$, the cdf  is
 
 $$F_{X}(x) = 1 - \exp^{-\lambda x}$$
 
