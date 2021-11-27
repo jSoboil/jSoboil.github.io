@@ -3,7 +3,8 @@ Some intermittent thoughts, primarily technical.
 
 ---
 
-### Some basic simulation methods (27th Nov, 2021): 
+### Some basic simulation methods:
+(27th Nov, 2021)
 
 <img src="img/SCwR_book.png" width="260" height="370" align="right" />
 
@@ -17,7 +18,8 @@ The inverse transform method then applies the [probability integral transformati
 
 $${F_x}^-1(u) = inf{x: F_X(x) = u}, 0 < u < 1$$
 
-### Reflections on the basic properties of numbers (19th Nov, 2021):
+### Reflections on the basic properties of numbers:
+(19th Nov, 2021)
 
 There are things I wish I had learned in school. Maybe I wouldn't have understood it then due to my ADD which often got in the way of my intent focus. Perhaps it was the teacher who was boring. Truthfully, I often found myself thinking of other things besides mathematics, as you can imagine. Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
 
