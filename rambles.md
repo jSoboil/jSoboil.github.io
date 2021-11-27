@@ -49,7 +49,7 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 
 As shown by visual inspection of the plot to the left, the histogram and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
-We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda\exp{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
+We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda \e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
 
 And so, if $$X \sim Exp(\lambda)$$, for $$x_{i} > 0$$, the cdf  is
 
@@ -57,9 +57,9 @@ $$F_{X}(x) = 1 - \exp^{-\lambda x}$$
 
 The inverse transformation of the cdf is then
 
-$$F_{X}^{-1}(u) = -(1/\lambda\times log(1 - u)$$
+$$F_{X}^{-1}(u) = -(\frac{1}{\lambda}) \times log(1 - u)$$
 
-Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to set $$x = -(1/\lambda) \times log(u)$$.
+Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$.
 
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
