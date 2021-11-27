@@ -31,11 +31,11 @@ and therefore:
 $$= {F_x}^{-1}(u)$$
 
 which has the same distribution as $$X$$. Thus, this implies that to generate a 
-random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$, and deliver the inverse value $${F_x}^{-1}(u)$$, before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute.
+random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$ to deliver the inverse value $${F_x}^{-1}(u)$$, before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute.
 
 **Some Simple Examples:**
 
-For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = 3$$ for $$0 < x < 1$$ and $${F_x}^{-1}(u) = u^{1/3}$$. The result is coded and ploted below.
+For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and $${F_x}^{-1}(u) = u^{1/3}$$. The result is coded and plotted below:
 
 ```{r}
 n <- 1000
@@ -48,7 +48,7 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 
 <img src="img/cdf_1.png" width="600" height="380" align="left" />
 
-As shown by visual inspection of the plot to the left, the histogram and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
+From visual inspection of the plot to the left, we can see that the histogram and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
 We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
 
