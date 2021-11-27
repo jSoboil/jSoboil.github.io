@@ -49,7 +49,7 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 
 As shown by visual inspection of the plot to the left, the histogram and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
-We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda\exp{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$. If $$X \sim exp{\lambda}$$ then for $$x > 0$$ the cdf  is $$F_{X}(x) = 1 - \exp^{-\lambda * x}$$. 
+We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda\exp{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$. If $$X \sim exp{\lambda}$$ then for $$x > 0$$ the cdf  is $$F_{X}(x) = 1 - \exp^{-\lambda \times x}$$. 
 
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
