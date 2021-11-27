@@ -49,13 +49,13 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 
 As shown by visual inspection of the plot to the left, the histogram and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
-We can also apply the method to generate a random sample from the exponential distribution with mean $$\frac{1}{\delta}$$.
+We can also apply the method to generate a random sample from the exponential distribution with mean $$\frac{1}{\lambda}$$.
 
 $$\begin{equation}
 f_X(x) = 
-\begin{dcases}
 \lambda \mathrm{e}^{-\lambda x} & x > 0 \\
-0 & \text{otherwise}$$
+0 & \text{otherwise}
+\end{equation}$$
 
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
