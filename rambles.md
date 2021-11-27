@@ -14,6 +14,18 @@ The inverse transform method for generating random variables is based on the fol
 
 $${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
+Hence, if $$U\sim Uniform(0, 1)$$, then for $$x \in \R$$:
+
+$$= P({F_x}^{-1}(u) \leq x) = P(\inf{[t: F_X(t) = U}] \leq x})$$
+
+$$= P(U \leq F_{X}(x))$$
+
+$$= F_{U}(F_{X}(x)) = F_{X}(x)$$
+
+and therefore:
+
+$$= {F_x}^{-1}(u)$$
+
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
 
