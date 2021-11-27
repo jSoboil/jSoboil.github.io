@@ -62,6 +62,8 @@ $$F_{X}^{-1}(u) = -(\frac{1}{\lambda}) \times log(1 - u)$$
 
 Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$.
 
+---
+
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
 
