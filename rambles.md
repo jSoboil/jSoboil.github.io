@@ -22,11 +22,9 @@ $$= P(U \leq F_{X}(x))$$
 
 then
 
-$$= F_{U}(F_{X}(x))$$
+$$F_{U}(F_{X}(x)) = F_{X}(x)$$
 
-$$= F_{X}(x)$$
-
-and therefore:
+and, given the chain rule, we can prove that:
 
 $$= {F_x}^{-1}(u)$$
 
