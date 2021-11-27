@@ -33,6 +33,7 @@ $$= {F_x}^{-1}(u)$$
 which has the same distribution as $$X$$ [1]. Thus, this implies that to generate a random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$ to deliver the inverse value $${F_x}^{-1}(u)$$, before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute [1].
 
 **Some Simple Examples:**
+
 For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and so $${F_x}^{-1}(u) = u^{\frac{1}{3}}$$ [1]. The result is coded and plotted below:
 
 ```{r}
@@ -61,6 +62,7 @@ $$F_{X}^{-1}(u) = -(\frac{1}{\lambda}) \times log(1 - u)$$
 Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$ [1].
 
 **References:**
+
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
 ---
