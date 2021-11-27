@@ -51,7 +51,7 @@ As shown by visual inspection of the plot to the left, the histogram and density
 
 We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda\exp{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
 
-And so, if $$X \sim exp{\lambda}$$ then for $$x > 0$$ the cdf  is
+And so, if $$X \sim Exp(\lambda)$$, for $$x_{i} > 0$$, the cdf  is
 
 $$F_{X}(x) = 1 - \exp^{-\lambda x}$$
 
