@@ -4,8 +4,9 @@ Some intermittent thoughts, primarily technical.
 ---
 
 ### Some basic simulation methods:
-
 (27th Nov, 2021)
+
+<img src="img/SCwR_book.png" width="260" height="370" align="right" />
 
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's '*Calculus*', I am also working through M. Rizzo's '*Statistical Computing with R*', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the 'Inverse Transform method'.
 
@@ -18,7 +19,6 @@ The inverse transform method then applies the [probability integral transformati
 $${F_x}^-1(u) = inf{x: F_X(x) = u}, 0 < u < 1$$
 
 ### Reflections on the basic properties of numbers:
-
 (19th Nov, 2021)
 
 There are things I wish I had learned in school. Maybe I wouldn't have understood it then due to my ADD which often got in the way of my intent focus. Perhaps it was the teacher who was boring. Truthfully, I often found myself thinking of other things besides mathematics, as you can imagine. Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
