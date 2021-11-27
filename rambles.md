@@ -2,13 +2,18 @@
 Some intermittent thoughts, primarily technical.
 
 ---
-### *Some basic simulation methods:*
+### Some basic simulation methods:
+- posted: 27th Nov, 2021
 
 <img src="img/SCwR_book.png" width="260" height="370" align="right" />
 
-After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's '*Calculus*', I am also working through M. Rizzo's '*Statistical Computing with R*'
+After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's '*Calculus*', I am also working through M. Rizzo's '*Statistical Computing with R*', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the 'Inverse Transform method'.
 
-### *Reflections on the basic properties of numbers:*
+
+
+### Reflections on the basic properties of numbers:
+- posted: 19th Nov, 2021
+
 There are things I wish I had learned in school. Maybe I wouldn't have understood it then due to my ADD which often got in the way of my intent focus. Perhaps it was the teacher who was boring. Truthfully, I often found myself thinking of other things besides mathematics, as you can imagine. Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
 
 Hence, I am currently working through the 4th Ed. of Michael Spivak's [*'Calculus'*](https://www.amazon.com/Calculus-4th-Michael-Spivak/dp/0914098918). Spivak presents calculus beautifully, with great prose. Importantly, I think, is his implicit mathematical message: it is an art that rewards playfulness and tinkering. But, to return back to the point of this post (it's title), I thought it would be good to share and revise the 'basic properties of numbers' or, more specifically, the basic rules of arithmetic.
