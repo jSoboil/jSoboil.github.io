@@ -48,7 +48,7 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 
 <img src="img/cdf_1.png" width="600" height="380" align="left" />
 
-From a simple visual inspection of the plot (left), we can observe that the histogram of $$u^{\frac{1}{3}}$$ and density plot (black line) suggest that the empirical and theoretical distributions *approximately* agree.
+From a simple visual inspection of the plot (left), we can observe that the histogram of $$u^{\frac{1}{3}}$$ and density plot of $$f(x) = 3x^{2}$$ (the black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
 We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
 
