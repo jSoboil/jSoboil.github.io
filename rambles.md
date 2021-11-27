@@ -14,17 +14,24 @@ The inverse transform method for generating random variables is based on the fol
 
 $${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
-Hence, if $$U\sim Uniform(0, 1)$$, then for $$x \in \mathbb{R}$$
+Hence if $$U\sim Uniform(0, 1)$$, then for $$x \in \mathbb{R}$$
 
 $$P({F_x}^{-1}(U) \leq x) = P(\inf{[t: F_X(t) = U}] \leq x)$$
 
 $$= P(U \leq F_{X}(x))$$
 
-$$= F_{U}(F_{X}(x)) = F_{X}(x)$$
+then
+
+$$= F_{U}(F_{X}(x))$$
+
+$$= F_{X}(x)$$
 
 and therefore:
 
 $$= {F_x}^{-1}(u)$$
+
+which has the same distribution as $$X$$. Thus, this implies that to generate a 
+random observation $$X$$, we can first generate a $$Uniform(0, 1)$$ variate $$y$$ and deliver the inverse value $${F_x}^{-1}(u)$$. Note that the method is easy to apply *provided* that the inverse density function is easy to compute
 
 ### Reflections on the basic properties of numbers:
 (19th Nov, 2021)
