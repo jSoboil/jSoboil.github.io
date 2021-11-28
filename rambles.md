@@ -87,7 +87,7 @@ The method can also be applied to the discrete case, but it is slightly differen
 </p>
 
 **Some Simple Discrete Examples:**
-In this example, $$F_{X}(0) = f_{X}(0) = 1 - p$$ and $$F_{X}(1) = 1$$. Thus, $$F_{X}^{-1}(u) = 1$$ if $$u > 0.6$$ and $$F_{X}^{-1}(u) = 0$$ if $$u \leq 0.6$$. The generator should therefore deliver the numerical value of the logical expression $$u > 0.6$$ [1]:
+In this example, we generate to a random sample of $$Bernoulli(p = 0.4)$$ variates for $$F_{X}(0) = f_{X}(0) = 1 - p$$ and $$F_{X}(1) = 1$$ where $$F_{X}^{-1}(u) = 1$$ if $$u > 0.6$$ and $$F_{X}^{-1}(u) = 0$$ if $$u \leq 0.6$$. The generator should therefore deliver the numerical value of the logical expression which we specify, which in this example is $$u > 0.6$$ [1]:
 
 ```r
 set.seed(300)
