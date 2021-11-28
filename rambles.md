@@ -38,7 +38,7 @@ which has the same distribution as $$X$$ [1]. Thus, this implies that to generat
 **Some Simple Continuous Examples:**
 For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and so $${F_x}^{-1}(u) = u^{\frac{1}{3}}$$ [1]. The result is coded and plotted below:
 
-```{r}
+```r
 n <- 1000
 u <- runif(n)
 x <- u ^ (1 / 3)
@@ -63,7 +63,7 @@ $$F_{X}^{-1}(u) = -(\frac{1}{\lambda}) \times log(1 - u)$$
 
 Note: $$U$$ and $$1 - U$$ have the same distribution and so it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$ [1]. The R code to generate To generate a random sample of size $$n$$ and parameter $$\lambda$$ is demonstrated below:
 
-```{r}
+```r
 n <- 1000
 lambda <- 0.5 # set lambda (mean) constant, i.e. E[X] = 1 / lambda
 x <- (-log(runif(n)) / lambda)
@@ -89,7 +89,7 @@ The method can also be applied to the discrete case, but it is slightly differen
 **Some Simple Discrete Examples:**
 In this example, $$F_{X}(0) = f_{X}(0) = 1 - p$$ and $$F_{X}(1) = 1$$. Thus, $$F_{X}^{-1}(u) = 1$$ if $$u > 0.6$$ and $$F_{X}^{-1}(u) = 0$$ if $$u \leq 0.6$$. The generator should therefore deliver the numerical value of the logical expression $$u > 0.6$$ [1]:
 
-```{r}
+```r
 n <- 1000
 p <- 0.4
 u <- runif(n)
