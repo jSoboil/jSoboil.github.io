@@ -6,9 +6,9 @@ Some intermittent thoughts, primarily technical.
 ### Some basic simulation methods:
 Posted: (27th Nov, 2021)
 
-After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's '[Statistical Computing with R](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324)', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
+After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's ['Statistical Computing with R'](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324), which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
 
-The inverse transform method for generating random variables is based on the following well-know result. If $$X$$ is a continuous random variable with cumulative density function (cdf) $$F_X(x)$$, then $$U = F_X(x) \sim Uniform(0, 1)$$. The inverse transform method then applies the [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform), where the inverse transformation is defined as
+The inverse transform method for generating random variables is based on the following well-known result. If $$X$$ is a continuous random variable with cumulative density function (cdf) $$F_X(x)$$, then $$U = F_X(x) \sim Uniform(0, 1)$$. The inverse transform method then applies the [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform), where the inverse transformation is defined as
 
 $${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
@@ -36,7 +36,6 @@ which has the same distribution as $$X$$ [1]. Thus, this implies that to generat
 </p>
 
 **Some Simple Continuous Examples:**
-
 For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and so $${F_x}^{-1}(u) = u^{\frac{1}{3}}$$ [1]. The result is coded and plotted below:
 
 ```{r}
@@ -54,9 +53,7 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 
 From a simple visual inspection of the plot (above), we can observe that the histogram of $$u^{\frac{1}{3}}$$ and density plot of $$f(x) = 3x^{2}$$ (the black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
-We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
-
-If $$X \sim Exp(\lambda)$$, for $$x_{i} > 0$$, the cdf  is
+We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$ [1]. For example, if $$X \sim Exp(\lambda)$$, for $$x_{i} > 0$$, the cdf is
 
 $$F_{X}(x) = 1 - e^{-\lambda x}$$
 
@@ -64,7 +61,7 @@ The inverse transformation of the cdf is then
 
 $$F_{X}^{-1}(u) = -(\frac{1}{\lambda}) \times log(1 - u)$$
 
-Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$ [1]. The code to generate To generate a random sample of size n with parameter $$\lambda$$ is shown below:
+Note: $$U$$ and $$1 - U$$ have the same distribution and so it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$ [1]. The R code to generate To generate a random sample of size $$n$$ and parameter $$\lambda$$ is demonstrated below:
 
 ```{r}
 n <- 1000
@@ -80,7 +77,7 @@ lines(y, lambda * exp(-lambda * y)) # density curve f(x)
 <img src="img/cdf_2.png" width="600" height="380"/>
 </p>
 
-The inverse transform method can also be applied to the discrete case. If $$X$$ is a discrete random variable and $$... < x_{i-1} < x_{i} < x_{i + 1} < ...$$ are the points of discontinuity of $$F_{X}(u)$$, then the inverse transformation is $$F_{X}^{-1}(u) = x_{i}$$, where $$F_{X}(x_{i - 1}) < u \leq F_{X}(x_{i})$$. So, for each random variate required, we need to:
+The method can also be applied to the discrete case, but it is slightly different and one has to specify discontinuities - to 'split' the samples into bins. If $$X$$ is a discrete random variable and $$... < x_{i-1} < x_{i} < x_{i + 1} < ...$$ are the points of discontinuity of $$F_{X}(u)$$, then the inverse transformation is $$F_{X}^{-1}(u) = x_{i}$$, where $$F_{X}(x_{i - 1}) < u \leq F_{X}(x_{i})$$ [1]. So, for each random variate required, we need to:
 
 - 1. Generate a random $$u$$ from $$Uniform(0, 1)$$
 
@@ -90,7 +87,31 @@ The inverse transform method can also be applied to the discrete case. If $$X$$ 
 </p>
 
 **Some Simple Discrete Examples**
+In this example, $$F_{X}(0) = f_{X}(0) = 1 - p$$ and $$F_{X}(1) = 1$$. Thus, $$F_{X}^{-1}(u) = 1$$ if $$u > 0.6$$ and $$F_{X}^{-1}(u) = 0$$ if $$u \leq 0.6$$. The generator should therefore deliver the numerical value of the logical expression $$u > 0.6$$ [1]:
 
+```{r}
+n <- 1000
+p <- 0.4
+u <- runif(n)
+x <- as.integer(u > 0.6)
+mean(x)
+```
+
+Another example, which requires more complicated function, is to simulate a $$Logarithmic(\theta)$$ sample using the method. A random variable $$X$$ has the logarithmic distribution if
+
+$$f(x) = P(X = x) = \frac{a \theta^{x}}{x}, x = 1, 2, ...$$
+
+where $$0 < \theta < 1$$
+
+and
+
+$$a = (-log(1 - \theta))^{-1}$$
+
+A recursive formulate for $$f(x)$$ is
+
+$$f(x + 1) = \frac{\theta^{x}}{x + 1} f(x), x = 1, 2, ...$$
+
+Theoretically, the probability mass function (pmf) can be evaluated recusively using the above equation, but the calculation is not sufficient for large values of x and ultimately produces $$f(x) = 0$$ with $$F(x) < 1$$. Instead, we can compute the pmf from the non-recursive equation as $$e^{(\loga + x\log\theta - \logx)}$$
 
 **References:**
 
@@ -231,4 +252,4 @@ Consequently, by adding $$(a\times b)$$ to both sides, we obtain
 
 $$(-a)\times (-b) = a\times b$$
 
-Et voila!
+Et voilà!
