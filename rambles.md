@@ -11,10 +11,9 @@ Posted: (27th Nov, 2021)
 <p align="left">
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's '[Statistical Computing with R](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324)', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
 </p>
-
 <p>
 The inverse transform method for generating random variables is based on the following well-know result. If $$X$$ is a continuous random variable with cumulative density function (cdf) $$F_X(x)$$, then $$U = F_X(x) \sim Uniform(0, 1)$$. The inverse transform method then applies the [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform), where the inverse transformation is defined as
-</p>
+
 $${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
 Hence if $$U\sim Uniform(0, 1)$$, then for $$x \in \mathbb{R}$$:
@@ -30,7 +29,7 @@ $$F_{U}(F_{X}(x)) = F_{X}(x)$$
 and, given the chain rule, we can prove that:
 
 $$= {F_x}^{-1}(u)$$
-<p>
+
 which has the same distribution as $$X$$ [1]. Thus, this implies that to generate a random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$ to deliver the inverse value $${F_x}^{-1}(u)$$, before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute [1].
 </p>
 
