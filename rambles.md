@@ -12,7 +12,11 @@ The inverse transform method for generating random variables is based on the fol
 
 $${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
-Hence if $$U\sim Uniform(0, 1)$$ then for $$x \in \mathbb{R}$$:
+Hence if
+
+$$U\sim Uniform(0, 1)$$
+
+then for $$x \in \mathbb{R}$$
 
 $$P({F_x}^{-1}(U) \leq x) = P(\inf{[t: F_X(t) = U}] \leq x)$$
 
@@ -22,11 +26,14 @@ then
 
 $$F_{U}(F_{X}(x)) = F_{X}(x)$$
 
-and, given the chain rule, we can prove that:
+and, using the chain rule, we can prove that:
 
 $$= {F_x}^{-1}(u)$$
 
 which has the same distribution as $$X$$ [1]. Thus, this implies that to generate a random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$ to deliver the inverse value $${F_x}^{-1}(u)$$, before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute [1].
+
+<p>
+</p>
 
 **Some Simple Continuous Examples:**
 
@@ -45,7 +52,7 @@ lines(y, 3 * y ^ 2) # density curve f(x)
 <img src="img/cdf_1.png" width="600" height="380" />
 </p>
 
-From a simple visual inspection of the plot (left), we can observe that the histogram of $$u^{\frac{1}{3}}$$ and density plot of $$f(x) = 3x^{2}$$ (the black line) suggest that the empirical and theoretical distributions *approximately* agree.
+From a simple visual inspection of the plot (above), we can observe that the histogram of $$u^{\frac{1}{3}}$$ and density plot of $$f(x) = 3x^{2}$$ (the black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
 We can also apply the method to generate a random sample from the exponential distribution $$f(x) = \lambda e^{-\lambda x}$$, with mean $$\frac{1}{\lambda}$$.
 
@@ -78,6 +85,9 @@ The inverse transform method can also be applied to the discrete case. If $$X$$ 
 - 1. Generate a random $$u$$ from $$Uniform(0, 1)$$
 
 - 2. Deliver $$x_{i}$$ where $$F(x_{i - 1}) < u \leq F(x_{i})$$
+
+<p>
+</p>
 
 **Some Simple Discrete Examples**
 
