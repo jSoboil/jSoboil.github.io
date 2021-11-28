@@ -2,6 +2,7 @@
 Some intermittent thoughts, primarily technical.
 
 ---
+---
 
 ### Some basic simulation methods:
 (27th Nov, 2021)
@@ -63,6 +64,7 @@ Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to se
 
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
+---
 ---
 
 ### Reflections on the basic properties of numbers:
