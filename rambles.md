@@ -6,7 +6,7 @@ Some intermittent thoughts, primarily technical.
 ### Some basic simulation methods:
 Posted: (27th Nov, 2021)
 
-<img src="img/SCwR_book.png" width="240" height="360" align="right" />
+<img src="img/SCwR_book.png" width="220" height="340" align="right" />
 
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's '[Statistical Computing with R](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324)', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
 
