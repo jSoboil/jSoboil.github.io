@@ -8,10 +8,13 @@ Posted: (27th Nov, 2021)
 
 <img src="img/SCwR_book.png" width="220" height="340" align="right" />
 
+<p align="left">
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's '[Statistical Computing with R](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324)', which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
+</p>
 
+<p>
 The inverse transform method for generating random variables is based on the following well-know result. If $$X$$ is a continuous random variable with cumulative density function (cdf) $$F_X(x)$$, then $$U = F_X(x) \sim Uniform(0, 1)$$. The inverse transform method then applies the [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform), where the inverse transformation is defined as
-
+</p>
 $${F_x}^{-1}(u) = \inf{[x: F_X(x) = u]}, 0 < u < 1$$
 
 Hence if $$U\sim Uniform(0, 1)$$, then for $$x \in \mathbb{R}$$:
@@ -27,10 +30,11 @@ $$F_{U}(F_{X}(x)) = F_{X}(x)$$
 and, given the chain rule, we can prove that:
 
 $$= {F_x}^{-1}(u)$$
-
+<p>
 which has the same distribution as $$X$$ [1]. Thus, this implies that to generate a random observation $$X$$, we can generate a simulated $$Uniform(0, 1)$$ variate $$y$$ to deliver the inverse value $${F_x}^{-1}(u)$$, before transforming to the desired cdf. Note that the method is easy to apply *provided* that the inverse density function is easy to compute [1].
+</p>
 
-**Some Simple Examples:**
+**Some Simple Continuous Examples:**
 
 For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and so $${F_x}^{-1}(u) = u^{\frac{1}{3}}$$ [1]. The result is coded and plotted below:
 
@@ -43,7 +47,9 @@ y <- seq(0, 1, 0.01)
 lines(y, 3 * y ^ 2) # density curve f(x) 
 ```
 
-<img src="img/cdf_1.png" width="600" height="380" align="left" />
+<p align="center">
+<img src="img/cdf_1.png" width="600" height="380" />
+</p>
 
 From a simple visual inspection of the plot (left), we can observe that the histogram of $$u^{\frac{1}{3}}$$ and density plot of $$f(x) = 3x^{2}$$ (the black line) suggest that the empirical and theoretical distributions *approximately* agree.
 
@@ -78,6 +84,9 @@ The inverse transform method can also be applied to the discrete case. If $$X$$ 
 - 1. Generate a random $$u$$ from $$Uniform(0, 1)$$
 
 - 2. Deliver $$x_{i}$$ where $$F(x_{i - 1}) < u \leq F(x_{i})$$
+
+**Some Simple Discrete Examples**
+
 
 **References:**
 
