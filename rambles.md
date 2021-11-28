@@ -110,11 +110,11 @@ and
 
 $$a = (-\log(1 - \theta))^{-1}$$
 
-A recursive formulae for $$f(x)$$ is
+A recursive formulae for $$f(x)$$, where $$x = 1, 2, ...$$, is
 
-$$f(x + 1) = \frac{\theta^{x}}{x + 1} f(x), x = 1, 2, ...$$
+$$f(x + 1) = \frac{\theta^{x}}{x + 1} f(x)$$
 
-Theoretically, the probability mass function (pmf) can be evaluated recursively using the above equation, but the calculation is not sufficient for large values of x and ultimately produces $$f(x) = 0$$ with $$F(x) < 1$$ [1]. Instead, we can compute the pmf from the non-recursive equation as $$e^{(\log a + x \log \theta - \log x)}$$. In generating a large sample, there will be many repetitive calculations of the same values $$F(x)$$ [1]. It is more efficient to store the cdf values. Initially, we must therefore choose a length $$N$$ for the cdf vector, and compute $$F(x), x = 1, 2, ..., N$$ [1]. If necessary $$N$$ will thus be increased.
+Theoretically, the probability mass function (pmf) can be evaluated recursively using the above equation, but the calculation is not sufficient for large values of x and ultimately produces $$f(x) = 0$$ with $$F(x) < 1$$ [1]. Instead, we can compute the pmf from the non-recursive equation as $$e^{(\log a + x \log \theta - \log x)}$$. In generating a large sample, there will be many repetitive calculations of the same values $$F(x)$$ [1]. It is more efficient to store the cdf values. Initially, we must therefore choose a length $$N$$ for the cdf vector, and compute $$F(x)$$ where $$x = 1, 2, ..., N$$ [1]. If necessary $$N$$ will thus be increased.
 
 To solve $$F(x - 1) < u \leq F(x)$$ for a particular $$u$$, it is necessary to count the number of values $$x$$ such that $$F(x - 1) < u$$. If $$F$$ is a vector and $$u_i$$ is a scalar, then the expression $$F < u_i$$ produces a logical vector; that is, a vector of the same length as $$F$$ containing boolean/logical <tt>TRUE</tt> or <tt>FALSE</tt> values. Notice that the sum of the logical vector $$(u_i > F)$$ is exaclty $$x - 1$$ [1]. The function is written in R below:
 
