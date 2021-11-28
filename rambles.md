@@ -90,6 +90,7 @@ The method can also be applied to the discrete case, but it is slightly differen
 In this example, $$F_{X}(0) = f_{X}(0) = 1 - p$$ and $$F_{X}(1) = 1$$. Thus, $$F_{X}^{-1}(u) = 1$$ if $$u > 0.6$$ and $$F_{X}^{-1}(u) = 0$$ if $$u \leq 0.6$$. The generator should therefore deliver the numerical value of the logical expression $$u > 0.6$$ [1]:
 
 ```r
+set.seed(300)
 n <- 1000
 p <- 0.4
 u <- runif(n)
@@ -97,7 +98,7 @@ x <- as.integer(u > 0.6)
 mean(x)
 ```
 
-This returns an expected value of $$E[X > 0.6] = 0.443$$. Another example, which requires more complicated function, is to simulate a $$Logarithmic(\theta)$$ sample using the method. A random variable $$X$$ has the logarithmic distribution if
+With a <tt>set.seed()</tt> value of $$300$$, this returns an expected value of $$E[X > 0.6] \approx 0.443$$. Another example, which requires a more complicated function, is to simulate a $$Logarithmic(\theta)$$ sample using the method. A random variable $$X$$ has the logarithmic distribution if
 
 $$f(x) = P(X = x) = \frac{a \theta^{x}}{x}, x = 1, 2, ...$$
 
@@ -138,6 +139,21 @@ rlogarithmic <- function(n, theta) {
  }
 }
 ```
+
+Using the above function, we can then generate random samples from the $$Logarithmic(0.5)$$ distribution:
+
+```r
+n <- 1000
+theta <- 0.5
+x <- rlogarithmic(n = n, theta = theta)
+k <- sort(unique(x))
+p <- -1 / log(1 - theta) * theta ^ k / k
+se <- sqrt(p * (1 - p) / n)
+```
+
+However, this is much more efficiently implemented using the acceptance-rejection method which will be the topic of my next post.
+
+Et voilà!
 
 **References:**
 
