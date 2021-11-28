@@ -86,7 +86,7 @@ The method can also be applied to the discrete case, but it is slightly differen
 <p>
 </p>
 
-**Some Simple Discrete Examples**
+**Some Simple Discrete Examples:**
 In this example, $$F_{X}(0) = f_{X}(0) = 1 - p$$ and $$F_{X}(1) = 1$$. Thus, $$F_{X}^{-1}(u) = 1$$ if $$u > 0.6$$ and $$F_{X}^{-1}(u) = 0$$ if $$u \leq 0.6$$. The generator should therefore deliver the numerical value of the logical expression $$u > 0.6$$ [1]:
 
 ```{r}
@@ -111,9 +111,33 @@ A recursive formulate for $$f(x)$$ is
 
 $$f(x + 1) = \frac{\theta^{x}}{x + 1} f(x), x = 1, 2, ...$$
 
-Theoretically, the probability mass function (pmf) can be evaluated recusively using the above equation, but the calculation is not sufficient for large values of x and ultimately produces $$f(x) = 0$$ with $$F(x) < 1$$. Instead, we can compute the pmf from the non-recursive equation as $$e^{(\log a + x \log \theta - \log x)}$$. In generating a large sample, there will be many repetitive calculations of the same values $$F(x)$$. It is more efficient to store the cdf values. Initially, we must therefore choose a length $$N$$ for the cdf vector, and compute $$F(x, x = 1, 2, ..., N)$$. If necessary $$N$$ will be increased.
+Theoretically, the probability mass function (pmf) can be evaluated recursively using the above equation, but the calculation is not sufficient for large values of x and ultimately produces $$f(x) = 0$$ with $$F(x) < 1$$. Instead, we can compute the pmf from the non-recursive equation as $$e^{(\log a + x \log \theta - \log x)}$$. In generating a large sample, there will be many repetitive calculations of the same values $$F(x)$$. It is more efficient to store the cdf values. Initially, we must therefore choose a length $$N$$ for the cdf vector, and compute $$F(x, x = 1, 2, ..., N)$$. If necessary $$N$$ will be increased.
 
-To solve $$F(x - 1) < u \leq F(x)$$ for a particular $$u$$, it is necessary to count the number of values $$x$$ such that $$F(x - 1) < u$$. If $$F$$ is a vector and $$u_i$$ is a scalar, then the expression $$F < u_i$$ produces a logical vector; that is, a vector of the same length as $$F$$ containing boolean/logical <tt>TRUE</tt> or <tt>FALSE</tt> values.
+To solve $$F(x - 1) < u \leq F(x)$$ for a particular $$u$$, it is necessary to count the number of values $$x$$ such that $$F(x - 1) < u$$. If $$F$$ is a vector and $$u_i$$ is a scalar, then the expression $$F < u_i$$ produces a logical vector; that is, a vector of the same length as $$F$$ containing boolean/logical <tt>TRUE</tt> or <tt>FALSE</tt> values. Notice that the sum of the logical vector $$(u_i > F)$$ is exaclty $$x - 1$$. The function is written in R below:
+
+```r
+rlogarithmic <- function(n, theta) {
+ # returns a random logarithmic(theta) sample size n:
+ u <- runif(n)
+ # set the initial length of the cdf vector:
+ N <- ceiling(-16 / log10((theta)))
+ k <- 1:N
+ a <- -1 / log(1 - theta)
+ fk <- exp(log(a) + k * log(theta) - log(k))
+ Fk <- cumsum(fk)
+ x <- integer(n)
+ for (i in 1:n) {
+  x[i] <- as.integer(sum(u[i] > Fk)) #F^{-1}(u) = 1
+  while (x[i] == N) {
+   # if x == N we need to extend the cdf
+   logf <- log(a) + (N + 1) * log(theta) - log(N + 1)
+   fk <- c(fk, exp(logf))
+   N <- N + 1
+   x[i] <- as.integer(sum(u[i] > Fk))
+  }
+ }
+}
+```
 
 **References:**
 
