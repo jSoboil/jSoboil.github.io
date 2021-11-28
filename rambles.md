@@ -39,7 +39,7 @@ n <- 1000
 u <- runif(n)
 x <- u ^ (1 / 3)
 hist(x, probability = TRUE, main = expression(f(x) == 3 * x ^ 2)) # density hist of sample
-y <- seq(0, 1, 0.1)
+y <- seq(0, 1, 0.01)
 lines(y, 3 * y ^ 2) # density curve f(x) 
 ```
 
@@ -57,7 +57,27 @@ The inverse transformation of the cdf is then
 
 $$F_{X}^{-1}(u) = -(\frac{1}{\lambda}) \times log(1 - u)$$
 
-Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$ [1].
+Note that $$U$$ and $$1 - U$$ have the same distribution and it is simpler to set $$x = -(\frac{1}{\lambda}) \times log(u)$$ [1]. The code to generate To generate a random sample of size n with parameter $$\lambda$$ is shown below:
+
+```{r}
+n <- 1000
+lambda <- 0.5 # set lambda (mean) constant, i.e. E[X] = 1 / lambda
+x <- (-log(runif(n)) / lambda)
+hist(x, probability = TRUE, main = expression(
+ f(x) == lambda * e ^ {-lambda * x}))
+y <- seq(min(x), max(x), 0.1)
+lines(y, lambda * exp(-lambda * y)) # density curve f(x)
+```
+
+<p align="center">
+<img src="img/cdf_2.png" width="600" height="380"/>
+</p>
+
+The inverse transform method can also be applied to the discrete case. If $$X$$ is a discrete random variable and $$... < x_{i-1} < x_{i} < x_{i + 1} < ...$$ are the points of discontinuity of $$F_{X}(u)$$, then the inverse transformation is $$F_{X}^{-1}(u) = x_{i}$$, where $$F_{X}(x_{i - 1}) < u \leq F_{X}(x_{i})$$. So, for each random variate required, we need to:
+
+- 1. Generate a random $$u$$ from $$Uniform(0, 1)$$
+
+- 2. Deliver $$x_{i}$$ where $$F(x_{i - 1}) < u \leq F(x_{i})$$
 
 **References:**
 
