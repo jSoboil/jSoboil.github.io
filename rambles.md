@@ -97,7 +97,7 @@ x <- as.integer(u > 0.6)
 mean(x)
 ```
 
-Another example, which requires more complicated function, is to simulate a $$Logarithmic(\theta)$$ sample using the method. A random variable $$X$$ has the logarithmic distribution if
+This returns an expected value of $$E[X > 0.6] = 0.443$$. Another example, which requires more complicated function, is to simulate a $$Logarithmic(\theta)$$ sample using the method. A random variable $$X$$ has the logarithmic distribution if
 
 $$f(x) = P(X = x) = \frac{a \theta^{x}}{x}, x = 1, 2, ...$$
 
@@ -105,13 +105,15 @@ where $$0 < \theta < 1$$
 
 and
 
-$$a = (-log(1 - \theta))^{-1}$$
+$$a = (-\log(1 - \theta))^{-1}$$
 
 A recursive formulate for $$f(x)$$ is
 
 $$f(x + 1) = \frac{\theta^{x}}{x + 1} f(x), x = 1, 2, ...$$
 
-Theoretically, the probability mass function (pmf) can be evaluated recusively using the above equation, but the calculation is not sufficient for large values of x and ultimately produces $$f(x) = 0$$ with $$F(x) < 1$$. Instead, we can compute the pmf from the non-recursive equation as $$e^{(\loga + x\log\theta - \logx)}$$
+Theoretically, the probability mass function (pmf) can be evaluated recusively using the above equation, but the calculation is not sufficient for large values of x and ultimately produces $$f(x) = 0$$ with $$F(x) < 1$$. Instead, we can compute the pmf from the non-recursive equation as $$e^{(\log a + x \log \theta - \log x)}$$. In generating a large sample, there will be many repetitive calculations of the same values $$F(x)$$. It is more efficient to store the cdf values. Initially, we must therefore choose a length $$N$$ for the cdf vector, and compute $$F(x, x = 1, 2, ..., N)$$. If necessary $$N$$ will be increased.
+
+To solve $$F(x - 1) < u \leq F(x)$$ for a particular $$u$$, it is necessary to count the number of values $$x$$ such that $$F(x - 1) < u$$. If $$F$$ is a vector and $$u_i$$ is a scalar, then the expression $$F < u_i$$ produces a logical vector; that is, a vector of the same length as $$F$$ containing boolean/logical <tt>TRUE</tt> or <tt>FALSE</tt> values.
 
 **References:**
 
