@@ -79,9 +79,9 @@ lines(y, lambda * exp(-lambda * y)) # density curve f(x)
 
 The method can also be applied to the discrete case, but it is slightly different and one has to specify discontinuities - to 'split' the samples into bins. If $$X$$ is a discrete random variable and $$... < x_{i-1} < x_{i} < x_{i + 1} < ...$$ are the points of discontinuity of $$F_{X}(u)$$, then the inverse transformation is $$F_{X}^{-1}(u) = x_{i}$$, where $$F_{X}(x_{i - 1}) < u \leq F_{X}(x_{i})$$ [1]. So, for each random variate required, we need to:
 
-- 1. Generate a random $$u$$ from $$Uniform(0, 1)$$
+1. Generate a random $$u$$ from $$Uniform(0, 1)$$
 
-- 2. Deliver $$x_{i}$$ where $$F(x_{i - 1}) < u \leq F(x_{i})$$
+2. Deliver $$x_{i}$$ where $$F(x_{i - 1}) < u \leq F(x_{i})$$
 
 <p>
 </p>
