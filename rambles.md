@@ -110,7 +110,7 @@ and
 
 $$a = (-\log(1 - \theta))^{-1}$$
 
-A recursive formulate for $$f(x)$$ is
+A recursive formulae for $$f(x)$$ is
 
 $$f(x + 1) = \frac{\theta^{x}}{x + 1} f(x), x = 1, 2, ...$$
 
