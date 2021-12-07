@@ -47,7 +47,7 @@ July 2021 - present
 - [R-HTA](https://r-hta.org/) is a consortium aimed at popularising R for health economics and health technology assessment (HTA)
 - Personally developed quarterly workshops, teaching basic to advanced health economic decision modelling topics
 
-#### Associate Consultant (IQVIA)
+#### Data Analyst (IQVIA)
 Cape Town, ZAR
 
 Jan 2021 - present
