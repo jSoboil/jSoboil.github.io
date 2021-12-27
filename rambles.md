@@ -2,8 +2,8 @@
 Some intermittent thoughts, primarily technical.
 
 ---
-
-### The Acceptance-Rejection Method
+title: The Acceptance-Rejection Method
+---
 After a much needed rest, I am continuing on from my previous post, and review the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling) below. This is another basic simulation technique we can use to random observations from a probability distribution. The method can thus be used for probabilistic sensitivity analysis.
 
 Note that most of these methods outlined so far are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given efficiency advantages. Nevertheless, I believe that it is still important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
@@ -23,30 +23,32 @@ So, the goals method is to satisfy the following conditions:
 - ii) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
 - iii) If $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ and deliver $$x = y$$; otherwise reject $$y$$
   
-It is important to note that in step 2 iii) that
+It is important to note that in step iii) that
 
 $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
 
 Hence, the last equality is simply evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is therefore
 
 \[
+
 Sigma_{y} P(accept | y) P(Y = y) = \Sigma_{y} \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}}
+
 \]
 
-and the number of iterations until acceptance has the geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem.
+and so the number of iterations until acceptance has the geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem.
 
 **Sampling from the Beta distribution:**
 As an example, let's ask the following: on average, how many random numbers must be simulated to generate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution by this method? It depends on the upper bound $$c$$ of $$\frac{f(x)}{g(x)}$$, which depends on the choice of the function $$g(x)$$.
 
-The $$Beta(2, 2)$$ density is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$. So, we then let $$g(x)$$ be the $$Uniform(0, 1)$$ density. Then the acceptance-rejection method states that, for all $$0 < x < 1$$:
+The $$Beta(2, 2)$$ density is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$. We then let $$g(x)$$ be the $$Uniform(0, 1)$$ density. Then the acceptance-rejection method states that, for all $$0 < x < 1$$:
 
 $$\frac{f(x)}{g(x)} <= 6$$ 
 
-and so $$c = 6$$. Then, given the above, a random $$x$$ from $$g(x)$$ is accepted if
+and so $$c = 6$$. Given the above, a random $$x$$ from $$g(x)$$ is accepted if
 
 $$\frac{f(x)}{cg(x)} = \frac{6x(1 - x)}{6(1)} = x(1 - x) > u$$
 
-So, on average, cn = 6000 iterations (12000 random numbers) will be required for a sample size 1000. In the following simulation below, the counter j for iterations is not necessary, but included to record how many iterations were actually needed to generate the 1000 beta variates [1]:
+Thus, on average, cn = 6000 iterations (12000 random numbers) will be required for a sample size 1000. In the following simulation below, the counter j for iterations is not necessary, but included to record how many iterations were actually needed to generate the 1000 beta variates [1]:
 
 ```r
 set.seed(41513)
@@ -91,10 +93,8 @@ Et voilà!
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
 ---
+title: Some basic simulation methods
 ---
-
-### Some basic simulation methods:
-Posted: (27th Nov, 2021)
 
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's ['Statistical Computing with R'](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324), which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
 
