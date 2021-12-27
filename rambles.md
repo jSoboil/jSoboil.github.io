@@ -2,8 +2,8 @@
 Some intermittent thoughts, primarily technical.
 
 ---
-title: The Acceptance-Rejection Method
----
+
+### The Acceptance-Rejection Method
 After a much needed rest I am continuing on from my previous post, and review the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling) below. This is another basic simulation technique we can use to random observations from a probability distribution. The method can thus be used for probabilistic sensitivity analysis.
 
 Note that most of these methods outlined so far are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given efficiency advantages. Nevertheless, I believe that it is still important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
@@ -93,9 +93,9 @@ Et voilà!
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
 ---
-title: Some basic simulation methods
 ---
 
+### Some basic simulation methods
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's ['Statistical Computing with R'](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324), which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
 
 The inverse transform method for generating random variables is based on the following well-known result. If $$X$$ is a continuous random variable with cumulative density function (cdf) $$F_X(x)$$, then $$U = F_X(x) \sim Uniform(0, 1)$$. The inverse transform method then applies the [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform), where the inverse transformation is defined as
