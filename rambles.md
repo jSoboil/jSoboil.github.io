@@ -18,9 +18,9 @@ So, the goals method is to satisfy the following conditions:
 1. Find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} <= c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
 
 2. For each random variate required:
-  *i) Generate a random $$y$$ from the distribution with density $$g$$
-  *ii) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
-  *iii) If $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ and deliver $$x = y$$; otherwise reject $$y$$
+- i) Generate a random $$y$$ from the distribution with density $$g$$
+- ii) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
+- iii) If $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ and deliver $$x = y$$; otherwise reject $$y$$
   
 It is important to note that in step 2 iii) that
 
@@ -75,8 +75,14 @@ se <- sqrt(p * (1 - p)) / (n * dbeta(Q, 2, 2) ^ 2)
 
 # Below, the sample percentiles (first line) approximately match the Beta(2, 2)
 # percentiles computed by qbeta (second line):
-x <- round(rbind(Q_hat, Q, se), 3)
-x
+round(rbind(Q_hat, Q, se), 3)
+
+# With the above seed.value, this produces the following values:
+        10%   20%   30%   40% 50%   60%   70%   80%   90%
+Q_hat 0.186 0.287 0.351 0.422 0.5 0.570 0.643 0.718 0.830
+Q     0.196 0.287 0.363 0.433 0.5 0.567 0.637 0.713 0.804
+se    0.000 0.000 0.000 0.000 0.0 0.000 0.000 0.000 0.000
+
 ```
 
 Et voilà!
