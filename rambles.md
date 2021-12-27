@@ -79,6 +79,8 @@ x <- round(rbind(Q_hat, Q, se), 3)
 x
 ```
 
+Et voilà!
+
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
 ---
