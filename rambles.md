@@ -29,7 +29,7 @@ $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
 
 Hence, the last equality is simply evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is therefore
 
-$$Sigma_{y} P(accept | y) P(Y = y) = \Sigma_{y} \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}}$$
+$$Sigma_{y} P(accept | y) P(Y = y) = \Sigma_{y} \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}$$
 
 and so the number of iterations until acceptance has the geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem.
 
