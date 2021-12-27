@@ -44,7 +44,7 @@ and so $$c = 6$$. Given the above, a random $$x$$ from $$g(x)$$ is accepted if
 
 $$\frac{f(x)}{cg(x)} = \frac{6x(1 - x)}{6(1)} = x(1 - x) > u$$
 
-Thus, on average, cn = 6000 iterations (12000 random numbers) will be required for a sample size 1000. In the following simulation below, the counter j for iterations is not necessary, but included to record how many iterations were actually needed to generate the 1000 beta variates [1]:
+Thus, on average, $$cn = 6000$$ iterations ($$12000$$ random numbers) will be required for a sample size 1000. In the following simulation below, the counter $$j$$ for iterations is not necessary, but included to record how many iterations were actually needed to generate the $$1000$$ beta variates [1]:
 
 ```r
 set.seed(41513)
