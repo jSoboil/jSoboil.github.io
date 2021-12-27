@@ -4,19 +4,19 @@ Some intermittent thoughts, primarily technical.
 ---
 title: The Acceptance-Rejection Method
 ---
-After a much needed rest, I am continuing on from my previous post, and review the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling) below. This is another basic simulation technique we can use to random observations from a probability distribution. The method can thus be used for probabilistic sensitivity analysis.
+After a much needed rest I am continuing on from my previous post, and review the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling) below. This is another basic simulation technique we can use to random observations from a probability distribution. The method can thus be used for probabilistic sensitivity analysis.
 
 Note that most of these methods outlined so far are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given efficiency advantages. Nevertheless, I believe that it is still important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
 
 The basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or pmf $$f$$ and $$g$$, respectively, and there exists a constant $$c$$ such that
 
-$$\frac{f(t)}{g(t)} <= c$$
+$$\frac{f(t)}{g(t)} \leq c$$
 
 for all $$t$$ (samples) given that $$f(t) > 0$$. Then the acceptance-rejection method (or rejection method) can be applied to generate the random variable $$X$$ [1].
 
 So, the goals method is to satisfy the following conditions:
 
-1. Find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} <= c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
+1. Find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} \leq c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
 
 2. For each random variate required:
 - i) Generate a random $$y$$ from the distribution with density $$g$$
@@ -42,7 +42,7 @@ As an example, let's ask the following: on average, how many random numbers must
 
 The $$Beta(2, 2)$$ density is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$. We then let $$g(x)$$ be the $$Uniform(0, 1)$$ density. Then the acceptance-rejection method states that, for all $$0 < x < 1$$:
 
-$$\frac{f(x)}{g(x)} <= 6$$ 
+$$\frac{f(x)}{g(x)} \leq 6$$ 
 
 and so $$c = 6$$. Given the above, a random $$x$$ from $$g(x)$$ is accepted if
 
