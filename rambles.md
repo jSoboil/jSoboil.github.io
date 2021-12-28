@@ -131,7 +131,7 @@ abline(0, 1)
 <img src="img/QQplot.png" width="600" height="380" />
 </p>
 
-In line with the current themes of my discussions I will continue discussion on transformation methods for random sampling in my next post, particularly on sums and mixtures methods for generating random variables.
+In line with the current themes of my discussions I will continue on transformation methods for random sampling in my next post, particularly sums and mixtures methods for random variables.
 
 Et voilà!
 
