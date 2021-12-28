@@ -99,12 +99,12 @@ In addition to the above, and the previous post on transformation methods, it is
 
 4. If $$U$$, $$V ~ Uniform(0, 1$$ are independent, then $$Z_{1} = \sqrt{-2 log U} cos(2\pi V)$$ and $$Z_{2} = \sqrt{-2 log U} sin(2\pi V)$$ are independent standard normal variables
 
-5. If $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \detla)$$ are independent, then $$X = \frac{U}{U + V}$$ has the $$Beta(r, s)$$ distribution
+5. If $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \delta)$$ are independent, then $$X = \frac{U}{U + V}$$ has the $$Beta(r, s)$$ distribution
 
-6. If $$U$$, $$V ~ Uniform(0, 1)$$ are independent, then $$X = [1 + \frac{log(V)}{log(1 - (1 - \theta)^{U})}]$$ has the $$Logarithmic(\theta)$$ distribution, where $$ \lfloor/x\rfloor$$ denotes the integer part of $$x$$
+6. If $$U$$, $$V ~ Uniform(0, 1)$$ are independent, then $$X = [1 + \frac{log(V)}{log(1 - (1 - \theta)^{U})}]$$ has the $$Logarithmic(\theta)$$ distribution, where $$ \lfloor x\rfloor$$ denotes the integer part of $$x$$
 
-**The relation between the Beta and Gamma distributions:**
-Using the above, if $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \delta)$$ are independent, then
+**The Relation Between the Beta and Gamma Distributions:**
+To show how some of these methods can be practically implemented, we will demonstrate the neat relation that occurs between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \delta)$$ are independent, then
 
 $$X = \frac{U}{U + V}$$
 
@@ -116,7 +116,7 @@ has the $$Beta(r, s)$$ distribution. This transformation determines an algorithm
 
 3. Deliver $$x = \frac{u}{u + v}$$
 
-An example of applying this method to generate a random $$Beta(3, 2)$$ sample is demonstrated, using R code, below:
+An example of applying this method to generate a random $$Beta(3, 2)$$ sample is demonstrated, using R code, below [1]:
 
 ```r
 set.seed(123)
@@ -128,7 +128,7 @@ v <- rgamma(n, shape = b, rate = 1)
 x <- u / (u + v)
 ```
 
-The sample we generate can then be compared with the $$Beta(3, 2)$$ distribution using a quantile-quantile (QQ) plot. If the sampled distribution is $$Beta(3, 2)$$, the QQ plot should be close to linear. This is confirmed by the plot below.
+The sample we generate can then be compared with the $$Beta(3, 2)$$ distribution using a quantile-quantile (QQ) plot [1]. If the sampled distribution is $$Beta(3, 2)$$, the QQ plot should be close to linear. This is confirmed by the plot below.
 
 ```r
 q <- qbeta(ppoints(n), a, b)
