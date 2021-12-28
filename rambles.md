@@ -4,47 +4,53 @@ Some intermittent thoughts, primarily technical.
 ---
 
 ### The Acceptance-Rejection Method
+Posted: (27th Dec, 2021)
+
 After a much needed rest I am continuing on from my previous post, and review the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling) below. This is another basic simulation technique we can use to random observations from a probability distribution. The method can thus be used for probabilistic sensitivity analysis.
 
-Note that most of these methods outlined so far are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given efficiency advantages. Nevertheless, I believe that it is still important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
+Most of these methods I have discussed so far (in this blog and the previous one) are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given the potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
 
-The basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or pmf $$f$$ and $$g$$, respectively, and there exists a constant $$c$$ such that
+The basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or mass $$f$$ and $$g$$, respectively, and there exists a constant $$c$$ such that
 
 $$\frac{f(t)}{g(t)} \leq c$$
 
-for all $$t$$ (samples) given that $$f(t) > 0$$. Then the acceptance-rejection method (or rejection method) can be applied to generate the random variable $$X$$ [1].
+for all $$t$$ inputs given $$f(t) > 0$$. The acceptance-rejection method (or rejection method) can then be applied to generate the random variable $$X$$ [1].
 
-So, the goals method is to satisfy the following conditions:
+So, the general goals of this method is to therefore satisfy the following conditions:
 
 1. Find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} \leq c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
 
 2. For each random variate required:
-- i) Generate a random $$y$$ from the distribution with density $$g$$
-- ii) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
-- iii) If $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ and deliver $$x = y$$; otherwise reject $$y$$
+- a) Generate a random $$y$$ from the distribution with density $$g$$
+- b) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
+- c) If $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ and deliver $$x = y$$; otherwise reject $$y$$
   
-It is important to note that in step iii) that
+It is important to note that in step 2 c) that
 
 $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
 
-Hence, the last equality is simply evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is therefore
+The above equality is simply evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, therefore, for all $$y$$ inputs
 
-$$\Sigma_{y} P(accept | y) P(Y = y) = \Sigma_{y} \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}$$
+$$P(accept | y) P(Y = y) = \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}$$
 
-and so the number of iterations until acceptance has the geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem.
+and so the number of iterations until acceptance has the geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem [1].
 
 **Sampling from the Beta distribution:**
-As an example, let's ask the following: on average, how many random numbers must be simulated to generate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution by this method? It depends on the upper bound $$c$$ of $$\frac{f(x)}{g(x)}$$, which depends on the choice of the function $$g(x)$$.
+As an example, let's ask the following: on average, how many random numbers must be simulated to generate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution by this method? It depends on the upper bound $$c$$ of $$\frac{f(x)}{g(x)}$$, which depends on the choice of the function $$g(x)$$ [1].
 
-The $$Beta(2, 2)$$ density is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$. We then let $$g(x)$$ be the $$Uniform(0, 1)$$ density. Then the acceptance-rejection method states that, for all $$0 < x < 1$$:
+The $$Beta(2, 2)$$ density is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$. We then let $$g(x)$$ be a function with a $$Uniform(0, 1)$$ density. Then the acceptance-rejection method states that, for all $$0 < x < 1$$:
 
 $$\frac{f(x)}{g(x)} \leq 6$$ 
 
-and so $$c = 6$$. Given the above, a random $$x$$ from $$g(x)$$ is accepted if
+and so
+
+$$c = 6$$
+
+Given the above, a random $$x$$ from $$g(x)$$ is accepted if
 
 $$\frac{f(x)}{cg(x)} = \frac{6x(1 - x)}{6(1)} = x(1 - x) > u$$
 
-Thus, on average, $$cn = 6000$$ iterations ($$12000$$ random numbers) will be required for a sample size 1000. In the following simulation below, the counter $$j$$ for iterations is not necessary, but included to record how many iterations were actually needed to generate the $$1000$$ beta variates [1]:
+and thus, on average, $$cn = 6000$$ iterations ($$12000$$ random numbers) will be required for a sample size $$1000$$. In the simulation below, the counter $$j$$ for iterations is not necessary, but included to record how many iterations were actually needed to generate the $$1000$$ beta variates [1]:
 
 ```r
 set.seed(41513)
@@ -76,13 +82,64 @@ se <- sqrt(p * (1 - p)) / (n * dbeta(Q, 2, 2) ^ 2)
 # percentiles computed by qbeta (second line):
 round(rbind(Q_hat, Q, se), 3)
 
-# With the above seed.value, this produces the following values:
+# With the above set.seed value, this produces the following values:
         10%   20%   30%   40% 50%   60%   70%   80%   90%
 Q_hat 0.186 0.287 0.351 0.422 0.5 0.570 0.643 0.718 0.830
 Q     0.196 0.287 0.363 0.433 0.5 0.567 0.637 0.713 0.804
 se    0.000 0.000 0.000 0.000 0.0 0.000 0.000 0.000 0.000
-
 ```
+
+In addition to the above, and the previous post on transformation methods, it is important to know that there are many types of transformation methods that can be applied to generate random variables. As noted in [1], some examples are
+
+1. If $$Z ~ N(0, 1)$$, then $$V = Z^{2} ~ \chi^{2}(1)$$
+
+2. If $$U ~ \chi^{2}(m)$$ and $$V ~ /chi^{2}(n)$$ are independent, then $$F = \frac{U/m}{V/n}$$ has the $$F$$ distribution with $$(m, n)$$ degrees of freedom
+
+3. If $$Z ~ N(0, 1)$$ and $$V ~ \chi^{2}(n)$$ are independent, then $$T = \frac{Z}{\sqrt{V/n}}$$ has the Student $$t$$ distribution with $$n$$ degress of freedom
+
+4. If $$U$$, $$V ~ Uniform(0, 1$$ are independent, then $$Z_{1} = \sqrt{-2 log U} cos(2\pi V)$$ and $$Z_{2} = \sqrt{-2 log U} sin(2\pi V)$$ are independent standard normal variables
+
+5. If $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \detla)$$ are independent, then $$X = \frac{U}{U + V}$$ has the $$Beta(r, s)$$ distribution
+
+6. If $$U$$, $$V ~ Uniform(0, 1)$$ are independent, then $$X = [1 + \frac{log(V)}{log(1 - (1 - \theta)^{U})}]$$ has the $$Logarithmic(\theta)$$ distribution, where $$ \lfloor/x\rfloor$$ denotes the integer part of $$x$$
+
+**The relation between the Beta and Gamma distributions:**
+Using the above, if $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \delta)$$ are independent, then
+
+$$X = \frac{U}{U + V}$$
+
+has the $$Beta(r, s)$$ distribution. This transformation determines an algorithm for generating random $$Beta(a, b)$$ variates. The steps are as follows:
+
+1. Generate a random $$u$$ from $$Gamma(a, 1)$$
+
+2. Generate a random $$v$$ from $$Gamma(b, 1)$$
+
+3. Deliver $$x = \frac{u}{u + v}$$
+
+An example of applying this method to generate a random $$Beta(3, 2)$$ sample is demonstrated, using R code, below:
+
+```r
+set.seed(123)
+n <- 1000
+a <- 3
+b <- 2
+u <- rgamma(n, shape = a, rate = 1)
+v <- rgamma(n, shape = b, rate = 1)
+x <- u / (u + v)
+```
+
+The sample we generate can then be compared with the $$Beta(3, 2)$$ distribution using a quantile-quantile (QQ) plot. If the sampled distribution is $$Beta(3, 2)$$, the QQ plot should be close to linear. This is confirmed by the plot below.
+
+```r
+q <- qbeta(ppoints(n), a, b)
+qqplot(q, x, cex = 0.25, xlab = "Beta(3, 2)", ylab = "Sample")
+abline(0, 1)
+```
+
+<p align="center">
+<img src="img/QQplot.png" width="600" height="380" />
+</p>
+
 
 Et voilà!
 
@@ -90,8 +147,11 @@ Et voilà!
 
 ---
 ---
+---
 
-### Some basic simulation methods
+### Some basic simulation methods 
+Posted: (29th Nov, 2021)
+
 After my first post on the basic properties of numbers, I thought I'd delve into some basic simulation techniques that can be useful for health economic decision modelling. In conjunction with Spivak's 'Calculus', I am working through M. Rizzo's ['Statistical Computing with R'](https://www.amazon.com/Statistical-Computing-Second-Chapman-Hall/dp/1466553324), which showcases basic to advanced simulation methods for statistical computing. For example, one of the most basic methods for generating random variables is called the '[Inverse Transform](https://en.wikipedia.org/wiki/Inverse_transform_sampling)' method.
 
 The inverse transform method for generating random variables is based on the following well-known result. If $$X$$ is a continuous random variable with cumulative density function (cdf) $$F_X(x)$$, then $$U = F_X(x) \sim Uniform(0, 1)$$. The inverse transform method then applies the [probability integral transformation](https://en.wikipedia.org/wiki/Probability_integral_transform), where the inverse transformation is defined as
@@ -248,6 +308,7 @@ Et voilà!
 
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
+---
 ---
 ---
 
