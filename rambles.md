@@ -10,7 +10,7 @@ After a much needed rest I am continuing on from my previous post, and review se
 
 Most of the methods I have discussed so far (in this blog and the previous) are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given the potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
 
-So, with that said, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or mass $$f$$ and $$g$$, respectively, and there exists a constant $$c$$, for all $$t$$ inputs given $$f(t) > 0$$, such that
+So, with that said, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with respective densities or masses $$f$$ and $$g$$, and there exists a constant $$c$$, for all $$t$$ inputs given $$f(t) > 0$$, such that
 
 $$\frac{f(t)}{g(t)} \leq c$$
 
