@@ -6,11 +6,11 @@ Some intermittent thoughts, primarily technical.
 ### The Acceptance-Rejection Method
 Posted: (27th Dec, 2021)
 
-After a much needed rest I am continuing on from my previous post, and review the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling) below. This is another basic simulation technique we can use to random observations from a probability distribution. The method can thus be used for probabilistic sensitivity analysis.
+After a much needed rest I am continuing on from my previous post, and review several other transformation methods for random sampling, including the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling).
 
-Most of these methods I have discussed so far (in this blog and the previous one) are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given the potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
+Most of the methods I have discussed so far (in this blog and the previous) are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given the potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
 
-The basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or mass $$f$$ and $$g$$, respectively, and there exists a constant $$c$$ such that
+So, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or mass $$f$$ and $$g$$, respectively, and there exists a constant $$c$$ such that
 
 $$\frac{f(t)}{g(t)} \leq c$$
 
@@ -89,7 +89,7 @@ Q     0.196 0.287 0.363 0.433 0.5 0.567 0.637 0.713 0.804
 se    0.000 0.000 0.000 0.000 0.0 0.000 0.000 0.000 0.000
 ```
 
-In addition to the above, and the previous post on transformation methods, it is important to know that there are many types of transformation methods that can be applied to generate random variables. As noted in [1], some examples are
+In addition to the above, it is important to realise that there are several other types of transformation methods that can be applied to generate random variables. As noted in [1], some examples are
 
 1. If $$Z ~ N(0, 1)$$, then $$V = Z^{2} ~ \chi^{2}(1)$$
 
@@ -104,7 +104,7 @@ In addition to the above, and the previous post on transformation methods, it is
 6. If $$U$$, $$V ~ Uniform(0, 1)$$ are independent, then $$X = [1 + \frac{log(V)}{log(1 - (1 - \theta)^{U})}]$$ has the $$Logarithmic(\theta)$$ distribution, where $$ \lfloor x\rfloor$$ denotes the integer part of $$x$$
 
 **The Relation Between the Beta and Gamma Distributions:**
-To show how some of these methods can be practically implemented, we will demonstrate the neat relation that occurs between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \delta)$$ are independent, then
+To demonstrate how these methods can be practically implemented, we will show the neat relation between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U ~ Gamma(r, \delta)$$ and $$V ~ Gamma(s, \delta)$$ are independent, then
 
 $$X = \frac{U}{U + V}$$
 
@@ -140,6 +140,7 @@ abline(0, 1)
 <img src="img/QQplot.png" width="600" height="380" />
 </p>
 
+In line with the current themes of my blog, I will continue discussion on transformation methods for random sampling, particularly on sums and mixtures of random variables.
 
 Et voilà!
 
