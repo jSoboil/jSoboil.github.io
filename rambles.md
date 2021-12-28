@@ -10,13 +10,11 @@ After a much needed rest I am continuing on from my previous post, and review se
 
 Most of the methods I have discussed so far (in this blog and the previous) are rather tedious and inefficient compared to Monte Carlo integration, for example. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using Markov Chain Monte Carlo simulation, is perhaps preferable given the potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' techniques for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for Monte Carlo integration and Markov Chain Monte Carlo techniques - since both rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
 
-So, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or mass $$f$$ and $$g$$, respectively, and there exists a constant $$c$$ such that
+So, with that said, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with with density or mass $$f$$ and $$g$$, respectively, and there exists a constant $$c$$, for all $$t$$ inputs given $$f(t) > 0$$, such that
 
 $$\frac{f(t)}{g(t)} \leq c$$
 
-for all $$t$$ inputs given $$f(t) > 0$$. The acceptance-rejection method (or rejection method) can then be applied to generate the random variable $$X$$ [1].
-
-So, the general goals of this method is to therefore satisfy the following conditions:
+which is simply a ratio of the two respective function outputs being compared to a chosen constant, or 'threshold' value, $$c$$. The general goals of this method are to therefore satisfy the following conditions:
 
 1. Find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} \leq c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
 
@@ -25,52 +23,45 @@ So, the general goals of this method is to therefore satisfy the following condi
 - b) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
 - c) If $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ and deliver $$x = y$$; otherwise reject $$y$$
   
-It is important to note that in step 2 c) that
+These steps will become more intuitively clear in the example given below. For now, it is important to note in step 2 c) that
 
 $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
 
-The above equality is simply evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, therefore, for all $$y$$ inputs
+which is an equality simply evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, therefore, for all $$y$$ inputs
 
 $$P(accept | y) P(Y = y) = \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}$$
 
 and so the number of iterations until acceptance has the geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem [1].
 
 **Sampling from the Beta distribution:**
-As an example, let's ask the following: on average, how many random numbers must be simulated to generate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution by this method? It depends on the upper bound $$c$$ of $$\frac{f(x)}{g(x)}$$, which depends on the choice of the function $$g(x)$$ [1].
+To provide a clearer, more intuitive understanding, let's ask the following: on average, how many random numbers must be simulated to generate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution by this method? It depends on the upper bound $$c$$ of $$\frac{f(x)}{g(x)}$$, which depends on the choice of the function $$g(x)$$ [1].
 
-The $$Beta(2, 2)$$ density is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$. We then let $$g(x)$$ be a function with a $$Uniform(0, 1)$$ density. Then the acceptance-rejection method states that, for all $$0 < x < 1$$:
+Ignoring the normalisation constant, remember that the $$Beta$$ density is $$x^{\alpha - 1} (1 - x)^{\beta - 1}$$ and so the numerator of our ratio, in this example, is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$ and $$c = 6$$. We then let $$g(x)$$ be a function with a $$Uniform(0, 1)$$ density. The acceptance-rejection method then states that, for all $$0 < x < 1$$:
 
 $$\frac{f(x)}{g(x)} \leq 6$$ 
 
-and so
-
-$$c = 6$$
-
-Given the above, a random $$x$$ from $$g(x)$$ is accepted if
+and, given the above, a random $$x$$ from $$g(x)$$ is accepted if
 
 $$\frac{f(x)}{cg(x)} = \frac{6x(1 - x)}{6(1)} = x(1 - x) > u$$
 
-and thus, on average, $$cn = 6000$$ iterations ($$12000$$ random numbers) will be required for a sample size $$1000$$. In the simulation below, the counter $$j$$ for iterations is not necessary, but included to record how many iterations were actually needed to generate the $$1000$$ beta variates [1]:
+Thus, on average, $$cn = 6000$$ iterations ($$12000$$ random numbers) will be required for a sample size $$1000$$. In the simulation below, the counter $$j$$ for iterations is not necessary, but included to record how many iterations were actually needed to generate the $$1000$$ beta variates [1]:
 
 ```r
 set.seed(41513)
 n <- 1000
-k <- 0
-j <- 0 # counter for accepted samples
+k <- 0 # number of accepted samples
 y <- numeric(n)
 
 while (k < n) {
  u <- runif(1)
- j <- j + 1
- x <- runif(1) # random variate from g
+ x <- runif(1) # sample random variate from g
  
  if (x * (1 - x) > u) {
   # accept sample x:
-  k <- k + 1
+  k <- k + 1 # add + 1 to k if sample accepted
   y[k] <- x
  }
 }
-j
 
 # Now we can compare the empirical and theoretical percentiles:
 p <- seq(0.1, 0.9, 0.1)
@@ -140,7 +131,7 @@ abline(0, 1)
 <img src="img/QQplot.png" width="600" height="380" />
 </p>
 
-In line with the current themes of my blog, I will continue discussion on transformation methods for random sampling, particularly on sums and mixtures of random variables.
+In line with the current themes of my blog, I will continue discussion on transformation methods for random sampling in my next post, particularly on sums and mixtures of random variables.
 
 Et voilà!
 
