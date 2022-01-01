@@ -84,18 +84,18 @@ In addition to the above, it is important to realise that there are several othe
 
 1. If $$Z \sim N(0, 1)$$, then $$V = Z^{2} \sim \chi^{2}(1)$$
 
-2. If $$U \sim \chi^{2}(m)$$ and $$V \sim /chi^{2}(n)$$ are independent, then $$F = \frac{U/m}{V/n}$$ has the $$F$$ distribution with $$(m, n)$$ degrees of freedom
+2. If $$U \sim \chi^{2}(m)$$ and $$V \sim \chi^{2}(n)$$ are independent, then $$F = \frac{U/m}{V/n}$$ has the $$F$$ distribution with $$(m, n)$$ degrees of freedom
 
 3. If $$Z \sim N(0, 1)$$ and $$V \sim \chi^{2}(n)$$ are independent, then $$T = \frac{Z}{\sqrt{V/n}}$$ has the Student $$t$$ distribution with $$n$$ degress of freedom
 
 4. If $$U$$, $$V \sim Uniform(0, 1$$ are independent, then $$Z_{1} = \sqrt{-2 log U} cos(2\pi V)$$ and $$Z_{2} = \sqrt{-2 log U} sin(2\pi V)$$ are independent standard normal variables
 
-5. If $$U \sim Gamma(r, \delta)$$ and $$V \sim Gamma(s, \delta)$$ are independent, then $$X = \frac{U}{U + V}$$ has the $$Beta(r, s)$$ distribution
+5. If $$U \sim Gamma(r, \lambda)$$ and $$V \sim Gamma(s, \lambda)$$ are independent, then $$X = \frac{U}{U + V}$$ has the $$Beta(r, s)$$ distribution
 
 6. If $$U$$, $$V \sim Uniform(0, 1)$$ are independent, then $$X = [1 + \frac{log(V)}{log(1 - (1 - \theta)^{U})}]$$ has the $$Logarithmic(\theta)$$ distribution, where $$ \lfloor x\rfloor$$ denotes the integer part of $$x$$
 
 **The Relation Between the Beta and Gamma Distributions:**
-To demonstrate how these methods can be practically implemented, we will show the neat relation between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U \sim Gamma(r, \delta)$$ and $$V \sim Gamma(s, \delta)$$ are independent, then
+To demonstrate how these methods can be practically implemented, we will show the neat relation between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U \sim Gamma(r, \lambda)$$ and $$V \sim Gamma(s, \lambda)$$ are independent, then
 
 $$X = \frac{U}{U + V}$$
 
