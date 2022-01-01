@@ -1,3 +1,5 @@
+<embed src="https://jsoboil.github.io/img/CV.pdf" type="application/pdf"/>
+
 ## **Curriculum vitae**
 Seeking to further develop career in the HEOR field. Particularly interested in developing comprehensive cost-effectiveness models and other HTA roles. 
 
