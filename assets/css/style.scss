@@ -26,9 +26,5 @@ $blockquote-text-color: #93939e !default;
     border: 0px solid #aaa;
     padding: 1.5em;
     list-style: decimal;
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 8em
-    
+    display: block;
 }
