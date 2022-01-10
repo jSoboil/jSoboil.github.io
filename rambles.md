@@ -1,11 +1,9 @@
 ## **Rambles**
 Some intermittent thoughts, primarily technical.
 
----
-### The acceptance-rejection method
-### Some basic simulation methods
-### Reflections on the basic properties of numbers
 {:toc}
+
+---
 
 ### The acceptance-rejection method
 Posted: (27th Dec, 2021)
@@ -141,8 +139,6 @@ Et voilà!
 
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
----
----
 ---
 
 ### Some basic simulation methods 
@@ -304,8 +300,6 @@ Et voilà!
 
 [1] Maria L. Rizzo. *Statistical Computing with R*. 2nd Ed. The R Series. CRC Press
 
----
----
 ---
 
 ### Reflections on the basic properties of numbers
