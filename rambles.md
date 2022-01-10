@@ -1,7 +1,8 @@
 ## **Rambles**
 Some intermittent thoughts, primarily technical.
 
-{:toc}
+### Table of Contents
+{% include toc.md %}
 
 ---
 
