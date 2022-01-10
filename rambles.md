@@ -4,7 +4,7 @@ Some intermittent thoughts, primarily technical.
 
 --- 
 
-## Table of Contents
+### Table of Contents
 
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
 - [Some basic simulation methods](#some-basic-simulation-methods)
