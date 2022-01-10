@@ -12,16 +12,16 @@ $blockquote-text-color: #93939e !default;
 
 @import "{{ site.theme }}";
 
-// Adding 'Contents' headline to the TOC
+// Adding 'Contents' headline to toc
 #markdown-toc::before {
     content: "Contents";
 }
 
-// Using numbers instead of bullets for listing
+// Style for toc listing
 #markdown-toc ul {
     list-style: disc;
 }
-
+// Other style misc for toc
 #markdown-toc {
     border: 0px solid #aaa;
     padding: 1.5em;
