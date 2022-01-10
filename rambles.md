@@ -2,10 +2,14 @@
 
 Some intermittent thoughts, primarily technical.
 
+{:.notoc}
+
 --- 
 
 * TOC
 {:toc}
+
+---
 
 ### The acceptance-rejection method
 Posted: (27th Dec, 2021)
