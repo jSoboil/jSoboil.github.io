@@ -6,9 +6,9 @@ Some intermittent thoughts, primarily technical.
 
 ## Table of Contents
 
-- [link](## The acceptance-rejection method)
-- [link](## Some basic simulation methods )
-- [link](## Reflections on the basic properties of numbers)
+- [The acceptance-rejection method](#the-acceptance-rejection-method)
+- [Some basic simulation methods](#some-basic-simulation-methods)
+- [Reflections on the basic properties of numbers](#reflections-on-the-basic-properties-of-numbers)
 
 ---
 
