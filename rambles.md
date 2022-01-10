@@ -1,8 +1,6 @@
-## **Rambles**
+# **Rambles**
 
 Some intermittent thoughts, primarily technical.
-
-{:.notoc}
 
 --- 
 

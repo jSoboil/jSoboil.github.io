@@ -22,11 +22,8 @@ $blockquote-text-color: #93939e !default;
 }
 // Other style misc for toc
 #markdown-toc {
-    border: 0px solid #aaa;
+    border: none;
     padding: 1.5em;
     list-style: disc;
-    display: block;
-}
-#markdown-toc h1 {
-   color: "white";
+    display: none;
 }
