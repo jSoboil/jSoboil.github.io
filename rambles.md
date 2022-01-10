@@ -1,10 +1,12 @@
 ## **Rambles**
 Some intermittent thoughts, primarily technical.
 
+---
+
 ### Table of Contents
 {% include toc.md %}
 
----
+--- 
 
 ### The acceptance-rejection method
 Posted: (27th Dec, 2021)
