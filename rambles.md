@@ -3,8 +3,8 @@ Some intermittent thoughts, primarily technical.
 
 ---
 
-### Table of Contents
-{{ content | toc_only }}
+* Do not remove this line (it will not be displayed)
+{:toc}
 
 --- 
 
