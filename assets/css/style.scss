@@ -28,6 +28,3 @@ $blockquote-text-color: #93939e !default;
     list-style: decimal;
     display: block;
 }
-
-$('#toc').toc({ headers: 'h3, h4' });
-$('#toc').toc({ showEffect: 'slideDown' });

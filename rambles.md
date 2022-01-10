@@ -1,8 +1,8 @@
 ## **Rambles**
+{:.notoc}
 Some intermittent thoughts, primarily technical.
-{:.no_toc}
----
 
+---
 * Do not remove this line (it will not be displayed)
 {:toc}
 
