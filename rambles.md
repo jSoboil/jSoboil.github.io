@@ -2,8 +2,12 @@
 Some intermittent thoughts, primarily technical.
 
 ---
+### The acceptance-rejection method
+### Some basic simulation methods
+### Reflections on the basic properties of numbers
+{:toc}
 
-### The Acceptance-Rejection Method
+### The acceptance-rejection method
 Posted: (27th Dec, 2021)
 
 After a much needed rest I am continuing on from my previous post, and review several other transformation methods for random sampling, including the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling).
@@ -304,7 +308,7 @@ Et voilà!
 ---
 ---
 
-### Reflections on the basic properties of numbers:
+### Reflections on the basic properties of numbers
 Posted: (19th Nov, 2021)
 
 There are things I wish I had learned in school. Maybe I wouldn't have understood it then due to my ADD which often got in the way of my intent focus. Perhaps it was the teacher who was boring. Truthfully, I often found myself thinking of other things besides mathematics, as you can imagine. Luckily, now that I am older I have unexpectedly developed a deep intrigue for mathematics, a tinkering obsession perhaps, and  my ability to appreciate some basic mathematical proofs has grown.
