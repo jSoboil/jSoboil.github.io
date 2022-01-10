@@ -4,7 +4,7 @@ Some intermittent thoughts, primarily technical.
 ---
 
 ### Table of Contents
-{% include toc.md %}
+{:toc}
 
 --- 
 
