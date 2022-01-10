@@ -14,7 +14,6 @@ $blockquote-text-color: #93939e !default;
 
 // Adding 'Contents' headline to toc
 #markdown-toc::before {
-    content: "Contents";
 }
 
 // Style for toc listing
@@ -25,6 +24,6 @@ $blockquote-text-color: #93939e !default;
 #markdown-toc {
     border: 0px solid #aaa;
     padding: 1.5em;
-    list-style: decimal;
+    list-style: disc;
     display: block;
 }
