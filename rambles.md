@@ -7,14 +7,14 @@ Some intermittent thoughts, primarily technical.
 ### Table of Contents
 
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
-    - 27th Dec, 2021
- 
+<p>&nbsp  ;</p>
+
 - [Some basic simulation methods](#some-basic-simulation-methods)
-    - 29th Nov, 2021
- 
+<p>&nbsp  ;</p>
+
 - [Reflections on the basic properties of numbers](#reflections-on-the-basic-properties-of-numbers)
-    - 19th Nov, 2021
- 
+<p>&nbsp  ;</p>
+
 ---
 
 ## The acceptance-rejection method
