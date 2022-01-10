@@ -7,13 +7,16 @@ Some intermittent thoughts, primarily technical.
 ### Table of Contents
 
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
-<p>&nbsp  ;</p>
+<p>
+</p>
 
 - [Some basic simulation methods](#some-basic-simulation-methods)
-<p>&nbsp  ;</p>
+<p>
+</p>
 
 - [Reflections on the basic properties of numbers](#reflections-on-the-basic-properties-of-numbers)
-<p>&nbsp  ;</p>
+<p>
+</p>
 
 ---
 
