@@ -6,18 +6,14 @@ Some intermittent thoughts, primarily technical.
 
 ### Table of Contents
 
-<details>
-<summary>View contents</summary>
+<details open>
+<summary>View content</summary>
 <br>
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
-<p>
-</p>
+
 - [Some basic simulation methods](#some-basic-simulation-methods)
-<p>
-</p>
+
 - [Reflections on the basic properties of numbers](#reflections-on-the-basic-properties-of-numbers)
-<p>
-</p>
 </details>
 
 ---
