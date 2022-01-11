@@ -9,11 +9,13 @@ Some intermittent thoughts, primarily technical.
 <details open>
 <summary>View content</summary>
 <br>
+
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
 
 - [Some basic simulation methods](#some-basic-simulation-methods)
 
 - [Reflections on the basic properties of numbers](#reflections-on-the-basic-properties-of-numbers)
+
 </details>
 
 ---
