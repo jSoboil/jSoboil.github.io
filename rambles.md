@@ -5,13 +5,13 @@ Some intermittent thoughts, primarily technical.
 --- 
 
 ### Table of Contents
-<br>
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
 <br>
 - [Some basic simulation methods](#some-basic-simulation-methods)
 <br>
 - [Reflections on the basic properties of numbers](#reflections-on-the-basic-properties-of-numbers)
 <br>
+
 ---
 
 ## The acceptance-rejection method
