@@ -19,43 +19,43 @@ Posted: (27th Dec, 2021)
 
 After a much needed rest I am continuing on from my previous post, and review several other transformation methods for random sampling, including the [acceptance-rejection method](https://en.wikipedia.org/wiki/Rejection_sampling).
 
-Most of the methods I have discussed so far (in this blog and the previous) are rather tedious and inefficient. Moreover, when dealing with high dimensions and parameter correlations, creating a fully-decision theoretic (comprehensive) model, using some type of Markov Chain Monte Carlo algorithm, is perhaps preferable given potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' algorithms for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided the genealogical building block for other, more efficient Monte Carlo integration algorithms which rely on the idea of proposal distributions, ratios, and acceptance thresholds - such as the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
+Most of the methods I have discussed so far (in this blog and the previous) are rather tedious and inefficient. Moreover, when dealing with high dimensions and parameter correlations in decision models, creating a fully-decision theoretic (comprehensive) model, using some type of Markov Chain Monte Carlo algorithm, is perhaps preferable given the potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' algorithms for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided some of the building blocks for other, more efficient Monte Carlo algorithms that rely on ideas such as proposal distributions, ratios, and acceptance thresholds - for example the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
 
-So, with that said, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with respective densities or masses $$f$$ and $$g$$, and there exists a constant $$c$$, for all $$t$$ inputs given $$f(t) > 0$$, such that
+With that said, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with respective densities or masses $$f$$ and $$g$$, and there exists a constant $$c$$, for all $$t$$ inputs given $$f(t) > 0$$, such that
 
 $$\frac{f(t)}{g(t)} \leq c$$
 
-which is simply a ratio of the two respective function outputs being compared to a chosen constant, or 'threshold' value, $$c$$. Thus, you'll will want to find some $$c$$ that satisfies this condition to sample efficiently by playing around with the $$\frac{f(t)}{g(t)}$$ ratio. The general goals of this method are, therefore, to satisfy the following:
+which is a ratio of the outputs of the respective function compared to a constant, or 'threshold' value, $$c$$. Thus, it is important to find some $$c$$ that satisfies this condition to sample efficiently. The general goals of this method are, therefore, to satisfy the following:
 
-1. First, find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} \leq c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
+1. First, find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} \leq c$$, for all $$t$$ such that $$f(t) > 0$$.
 
 2. Second, for each random variate required:
 - a) Generate a random $$y$$ from the distribution with density $$g$$
 - b) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
-- c) If the sample $$u$$ from the uniform distribution is less than or equal to the ratio of the target density over the proposal distribution multiplied by $$c$$, $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ as being within the bounds of $$x$$, i.e., a valid sample from $$f(x)$$, and deliver $$x = y$$; otherwise reject $$y$$.
+- c) If $$u < \frac{f(y)}{cg(y)}$$, accept the sample $$y$$ and deliver $$x = y$$; otherwise reject $$y$$.
 
-These steps will become more intuitively clear in the example given below. For now, it is important to note in step 2 c) that
+It is important to note in relation to step 2 c), that
 
 $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
 
-which is an inequality evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, for all $$y$$ inputs,
+which is an inequality evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, therefore, for all $$y$$ inputs is
 
-$$P(accept | y) P(Y = y) = \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}$$
+$$P(accept | y) P(Y = y) = \frac{f(y)}{cg(y)} g(y) dy = \frac{1}{c}$$
 
-and so this means that the number of iterations until acceptance has a geometric distribution with mean $$c$$. On average, each sample value of $$X$$ therefore requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem [1].
+which means that the number of iterations until acceptance for each sample has a geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem [1].
 
 ### Sampling from the Beta distribution:
-To provide a clearer, more intuitive understanding, let's ask the following: on average, how many random numbers must be simulated to generate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution by this method? It depends on the upper bound $$c$$ of $$\frac{f(x)}{g(x)}$$, which depends on the choice of the function $$g(x)$$ [1].
+To provide a clearer, more intuitive understanding, let's simulate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution using the acceptance-rejection method [1].
 
-Ignoring the normalisation constant, remember that the $$Beta$$ density is $$x^{\alpha - 1} (1 - x)^{\beta - 1}$$ and so the numerator of our ratio, in this example, is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$ and $$c = 6$$. We then let $$g(x)$$ be a function with a $$Uniform(0, 1)$$ density. The acceptance-rejection method then states that, for all $$0 < x < 1$$:
+Remember that the $$Beta$$ density is $$x^{\alpha - 1} (1 - x)^{\beta - 1}$$. If $$c = 6$$, the numerator of our ratio, in this example, is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$. We then let $$g(x)$$ be a function with a $$Uniform(0, 1)$$ density. Then if:
 
 $$\frac{f(x)}{g(x)} \leq 6$$ 
 
-and, given the above, a random $$x$$ from $$g(x)$$ is accepted if
+a random $$x$$ from $$g(x)$$ is accepted if
 
 $$\frac{f(x)}{cg(x)} = \frac{6x(1 - x)}{6(1)} = x(1 - x) > u$$
 
-Thus, on average, $$cn = 6000$$ iterations ($$12000$$ random numbers) will be required for a sample size $$1000$$. In the simulation below, the counter $$j$$ for iterations is not necessary, but included to record how many iterations were actually needed to generate the $$1000$$ beta variates [1]:
+The R code for this simulation is presented below [1].
 
 ```r
 set.seed(41513)
@@ -91,7 +91,7 @@ Q     0.196 0.287 0.363 0.433 0.5 0.567 0.637 0.713 0.804
 se    0.000 0.000 0.000 0.000 0.0 0.000 0.000 0.000 0.000
 ```
 
-In addition to the above, it is important to realise that there are several other types of transformation methods that can be applied to generate random variables. As noted in [1], some examples are
+In addition to the above, it is important to know that there are several other types of methods that can be applied to generate random variables, all with their own assumptions. As noted in [1], some examples are
 
 1. If $$Z \sim N(0, 1)$$, then $$V = Z^{2} \sim \chi^{2}(1)$$
 
@@ -106,11 +106,11 @@ In addition to the above, it is important to realise that there are several othe
 6. If $$U$$, $$V \sim Uniform(0, 1)$$ are independent, then $$X = [1 + \frac{log(V)}{log(1 - (1 - \theta)^{U})}]$$ has the $$Logarithmic(\theta)$$ distribution, where $$ \lfloor x\rfloor$$ denotes the integer part of $$x$$
 
 ### The Relation Between the Beta and Gamma Distributions:
-To demonstrate how these methods can be practically implemented, we will show the neat relation between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U \sim Gamma(r, \lambda)$$ and $$V \sim Gamma(s, \lambda)$$ are independent, then
+Based on example 5 above, we can show the neat relation between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U \sim Gamma(r, \lambda)$$ and $$V \sim Gamma(s, \lambda)$$ are independent, then
 
 $$X = \frac{U}{U + V}$$
 
-has the $$Beta(r, s)$$ distribution. This transformation determines an algorithm for generating random $$Beta(a, b)$$ variates. The steps are as follows:
+has the $$Beta(r, s)$$ distribution. This transformation determines an algorithm for generating random $$Beta(a, b)$$ variates. The algorithm is as follows:
 
 1. Generate a random $$u$$ from $$Gamma(a, 1)$$
 
@@ -142,7 +142,7 @@ abline(0, 1)
 <img src="img/QQplot.png" width="600" height="380" />
 </p>
 
-In line with the current themes of my discussions I will continue on transformation methods for random sampling in my next post, particularly sums and mixtures methods for random variables.
+I will continue my discussion methods for random sampling in my next post, focusing on methods for multivariate distributions, which have often been used in health economic decision modelling, such as Choleski factorisation.
 
 Et voilà!
 
@@ -318,19 +318,19 @@ There are things I wish I had learned in school. Maybe I wouldn't have understoo
 
 Hence, I am currently working through the 4th Ed. of Michael Spivak's [*'Calculus'*](https://www.amazon.com/Calculus-4th-Michael-Spivak/dp/0914098918). Spivak presents calculus beautifully, with great prose. Importantly, I think, is his implicit mathematical message: it is an art that rewards playfulness and tinkering. But, to return back to the point of this post (it's title), I thought it would be good to share and revise the 'basic properties of numbers' or, more specifically, the basic rules of arithmetic.
 
-#### Property 1: the associative law for addition
+### Property 1: the associative law for addition
 If $$a$$, $$b$$, and $$c$$ are any numbers, then
 
 $$a + (b+c) = (a+b) + c$$
 
-#### Property 2: the existence of an additive identity
+### Property 2: the existence of an additive identity
 If $$a$$ is any number, then
 
 $$a + 0 = 0 + a = a$$
 
 Following from this, an important role is also played by 0 in the third property.
 
-#### Property 3: the existence of additive inverses
+### Property 3: the existence of additive inverses
 For every number $$a$$, there is a number $$-a$$ such that
 
 $$a + (-a) = (-a) + a = 0$$
@@ -339,7 +339,7 @@ Thus, additive inverses are simply the addition of the negative, i.e. $$+ (-a)$$
 
 There now remains only one remaining property for basic addition.
 
-#### Property 4: the commutative law for addition
+### Property 4: the commutative law for addition
 If $$a$$ and $$b$$ are any numbers, then
 
 $$a + b = b + a$$
@@ -348,7 +348,7 @@ which emphasises that the operation of addition of pairs of numbers does not dep
 
 However, to go further into arithmetic, into multiplication and division, we need a little more.
 
-#### Property 5: the associative law for multiplication
+### Property 5: the associative law for multiplication
 Fortunately, Spivak notes, the basic properties of multiplication are so similar to those for addition that both the meaning and the consequences should be clear.
 
 If $$a$$, $$b$$, and $$c$$ are any numbers, then
@@ -357,7 +357,7 @@ $$a\times (b\times c) = (a\times b)\times c$$
 
 This leads to to the existence of an identity for multiplication rules...
 
-#### Property 6: the existence of a multiplicative identity
+### Property 6: the existence of a multiplicative identity
 If $$a$$ is any number, then
 
 $$a\times 1 = 1\times a = a$$
@@ -368,19 +368,19 @@ $$1 \not= 0$$
 
 As Spivak notes, this assertion may seem strange but it is important because it is not possible to prove the property otherwise. As below, $$\frac{a}{0}$$ is undefined, hence the assertion.
 
-#### Property 7: the existence of multiplicative inverses
+### Property 7: the existence of multiplicative inverses
 For every number $$a \not= 0$$, there is a number $$a^{-1}$$ such that
 
 $$a\times a^{-1} = a^{-1}\times a = 1$$
 
 In other words $$\frac{2}{2} = 1$$.
 
-#### Property 8: the commutative law for multiplication
+### Property 8: the commutative law for multiplication
 If $$a$$ and $$b$$ are any numbers, then
 
 $$a\times b = b\times a$$
 
-#### Property 9: the distributive law
+### Property 9: the distributive law
 Finally, if $$a$$, $$b$$, and $$c$$ are any numbers, then
 
 $$a\times (b + c) = a\times b + a\times c$$
