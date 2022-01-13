@@ -25,15 +25,15 @@ So, with that said, the basic idea of the acceptance-rejection method is as foll
 
 $$\frac{f(t)}{g(t)} \leq c$$
 
-which is simply a ratio of the two respective function outputs being compared to a chosen constant, or 'threshold' value, $$c$$. The general goals of this method are to therefore satisfy the following conditions:
+which is simply a ratio of the two respective function outputs being compared to a chosen constant, or 'threshold' value, $$c$$. Thus, you'll will want to find some $$c$$ that satisfies this condition to sample efficiently by playing around with the $$\frac{f(t)}{g(t)}$$ ratio. The general goals of this method are, therefore, to satisfy the following:
 
-1. Find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} \leq c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
+1. First, find a random variable $$Y$$ with density $$g$$ satisfying $$\frac{f(t)}{g(t)} \leq c$$, for all $$t$$ such that $$f(t) > 0$$. Provide a method to generate random $$Y$$.
 
-2. For each random variate required:
+2. Second, for each random variate required:
 - a) Generate a random $$y$$ from the distribution with density $$g$$
 - b) Generate a random $$u$$ from the $$Uniform(0, 1)$$ distribution
-- c) If $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ and deliver $$x = y$$; otherwise reject $$y$$
-  
+- c) If the sample $$u$$ from the uniform distribution is less than or equal to the ratio of the target density over the proposal distribution multiplied by $$c$$, $$u < \frac{f(y)}{cg(y)}$$, accept $$y$$ as being within the bounds of $$x$$, i.e., a valid sample from $$f(x)$$, and deliver $$x = y$$; otherwise reject $$y$$.
+
 These steps will become more intuitively clear in the example given below. For now, it is important to note in step 2 c) that
 
 $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
