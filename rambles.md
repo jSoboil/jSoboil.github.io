@@ -38,13 +38,13 @@ These steps will become more intuitively clear in the example given below. For n
 
 $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
 
-which is an equality simply evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, therefore, for all $$y$$ inputs
+which is an inequality evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, for all $$y$$ inputs,
 
 $$P(accept | y) P(Y = y) = \frac{f(y)}{cg(y)} g(y) = \frac{1}{c}$$
 
-and so the number of iterations until acceptance has the geometric distribution with mean $$c$$. Hence, on average each sample value of $$X$$ requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem [1].
+and so this means that the number of iterations until acceptance has a geometric distribution with mean $$c$$. On average, each sample value of $$X$$ therefore requires $$c$$ iterations. For efficiency, $$Y$$ should be easy to simulate and $$c$$ small. Note that it is also handy to check that the accepted sample has the same distribution as $$X$$ by applying Bayes' theorem [1].
 
-**Sampling from the Beta distribution:**
+#### Sampling from the Beta distribution:
 To provide a clearer, more intuitive understanding, let's ask the following: on average, how many random numbers must be simulated to generate 1000 variables from the $$Beta(\alpha = 2, \beta = 2)$$ distribution by this method? It depends on the upper bound $$c$$ of $$\frac{f(x)}{g(x)}$$, which depends on the choice of the function $$g(x)$$ [1].
 
 Ignoring the normalisation constant, remember that the $$Beta$$ density is $$x^{\alpha - 1} (1 - x)^{\beta - 1}$$ and so the numerator of our ratio, in this example, is $$f(x) = 6x(1 - x)$$, where $$0 < x < 1$$ and $$c = 6$$. We then let $$g(x)$$ be a function with a $$Uniform(0, 1)$$ density. The acceptance-rejection method then states that, for all $$0 < x < 1$$:
@@ -105,7 +105,7 @@ In addition to the above, it is important to realise that there are several othe
 
 6. If $$U$$, $$V \sim Uniform(0, 1)$$ are independent, then $$X = [1 + \frac{log(V)}{log(1 - (1 - \theta)^{U})}]$$ has the $$Logarithmic(\theta)$$ distribution, where $$ \lfloor x\rfloor$$ denotes the integer part of $$x$$
 
-**The Relation Between the Beta and Gamma Distributions:**
+#### The Relation Between the Beta and Gamma Distributions:
 To demonstrate how these methods can be practically implemented, we will show the neat relation between the $$Beta$$ and $$Gamma$$ distributions. As above, if $$U \sim Gamma(r, \lambda)$$ and $$V \sim Gamma(s, \lambda)$$ are independent, then
 
 $$X = \frac{U}{U + V}$$
@@ -182,7 +182,7 @@ which has the same distribution as $$X$$ [1]. Thus, this implies that to generat
 <p>
 </p>
 
-**Some Simple Continuous Examples:**
+#### Some Simple Continuous Examples:
 For instance, we can use the method to simulate a random sample from a distribution with the density $$f(x) = 3x^{2}$$, where $$0 < x < 1$$. Here the integral of the density function, or 'cumulative density', is simply $$F_{X}(x) = x^{3}$$ for $$0 < x < 1$$ and so $${F_x}^{-1}(u) = u^{\frac{1}{3}}$$ [1]. The result is coded and plotted below:
 
 ```r
@@ -233,7 +233,7 @@ The method can also be applied to the discrete case, but it is slightly differen
 <p>
 </p>
 
-**Some Simple Discrete Examples:**
+#### Some Simple Discrete Examples:
 In this example, we generate to a random sample of $$Bernoulli(p = 0.4)$$ variates for $$F_{X}(0) = f_{X}(0) = 1 - p$$ and $$F_{X}(1) = 1$$ where $$F_{X}^{-1}(u) = 1$$ if $$u > 0.6$$ and $$F_{X}^{-1}(u) = 0$$ if $$u \leq 0.6$$. The generator should therefore deliver the numerical value of the logical expression which we specify, which in this example is $$u > 0.6$$ [1]:
 
 ```r
