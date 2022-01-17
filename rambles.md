@@ -21,7 +21,7 @@ After a much needed rest I am continuing on from my previous post, and review se
 
 Most of the methods I have discussed so far (in this blog and the previous) are rather tedious and inefficient. Moreover, when dealing with high dimensions and parameter correlations in decision models, creating a fully-decision theoretic (comprehensive) model, using some type of Markov Chain Monte Carlo algorithm, is perhaps preferable given the potential efficiency advantages. Nevertheless, I believe that it is important to have a basic understanding of the more 'foundational' algorithms for random sampling, since many of these methods were borne from each other over time. In fact, the acceptance-rejection method provided some of the building blocks for other, more efficient Monte Carlo algorithms that rely on ideas such as proposal distributions, ratios, and acceptance thresholds - for example the [Metropolis algorithm](https://en.wikipedia.org/wiki/Metropolis_algorithm).
 
-With that said, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with respective densities or masses $$f$$ and $$g$$, and there exists a constant $$c$$, for all $$t$$ inputs given $$f(t) > 0$$, such that
+With that said, the basic idea of the acceptance-rejection method is as follows: suppose that $$X$$ and $$Y$$ are random variables with respective densities or masses $$f$$ and $$g$$, and there exists a normalising constant $$c$$, for all $$t$$ inputs given $$f(t) > 0$$, such that
 
 $$\frac{f(t)}{g(t)} \leq c$$
 
@@ -38,7 +38,7 @@ It is important to note in relation to step 2 c), that
 
 $$P(accept | Y) = P(U < \frac{f(Y)}{cg(Y)} | Y) = \frac{f(Y)}{cg(Y)}$$
 
-which is an inequality evaluating the cdf of $$U$$. The total probability of acceptance for any iteration is, therefore, for all $$y$$ inputs is
+which is an inequality evaluating the cdf of $$U$$. The total probability of acceptance for any iteration, therefore, for all $$y$$ inputs is
 
 $$P(accept | y) P(Y = y) = \frac{f(y)}{cg(y)} g(y) dy = \frac{1}{c}$$
 
