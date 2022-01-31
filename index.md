@@ -1,4 +1,7 @@
 # **Some Bytes About Me**
+
+--- 
+
 <a href="thumbnail">
   <img align = "right" height = "490px" width = "400px" src = "img/siteLogo.png" />
   </a>
@@ -11,5 +14,3 @@ For some added bytes, Joshua encourages the use of R for HTA. An extensive healt
 
 ## **Contact**
 For inquiries, please contact Joshua via [LinkedIn](https://www.linkedin.com/in/joshua-soboil-067351172/).
-
----
