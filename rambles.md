@@ -4,7 +4,9 @@ Some intermittent thoughts, primarily technical.
 
 ---
 
-### Table of Contents
+## Table of Contents
+- [The Metropolis-Hastings Algorithm](#the-metropolis-hastings-algorithm)
+<br>
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
 <br>
 - [Some basic simulation methods](#some-basic-simulation-methods)
@@ -13,6 +15,72 @@ Some intermittent thoughts, primarily technical.
 <br>
 
 ---
+## The Metropolis-Hastings Algorithm
+So, it's been a while since I last posted. Admittedly, I have been on a roller-coaster - a good one! I've moved to the United Kingdom. My wife and I have secured a beautiful apartment for the next two years, and I have accepted the position of Senior Analyst at [Cogentia Healthcare Consulting](https://cogentia.co.uk). Between that, and still trying to do some touristy things here and there - like visiting the beautiful Regent's Park (it was weird to hear lions roaring so far away from home) and the extremely busy Camden Market - I also managed to partake and complete the Bayesian Data Analysis course for 'global south' students, organised by Prof [Aki Vehtari](https://users.aalto.fi/~ave/). Yes, ***the guy who helped write BDA3***. Pretty cool!
+
+I learnt a *lot* over the course of a few months, but one of the most interesting things for me was observing how almost every peer I reviewed had a *different way of solving the weekly problem*. I found it fascinating to see how my peers structured their code and layout of the problem differently, sometimes (often) thinking, "My god, that is an awesome and much more efficient way to do it!" One of the really cool technical things that I learnt directly from the course however, was explicitly writing my own Metropolis-Hastings Algorithm.
+
+The Metropolis algorithm is a general term for a Markov chain simulation method that can be used to sample from Bayesian posterior distributions. Simply, given a posterior distribution that is not straightforward to sample from analytically, the Metropolis algorithm can approximate the posterior via information obtained from a ratio of symmetric densities. The central mechanic of the algorithm is the *jumping rule*.
+
+The jumping rule assigns a new, *proposal* parameter value if a new, randomly sampled value induces a larger ratio between the target and proposal distribution compared to the previously sampled value (a larger value indicates that there is greater mass in the posterior at the new, proposed point). Specifically, this information is induced via the likelihoods (and priors) used to calculate the density ratio.
+
+For instance, say we have some data that looks like this:
+```r
+      x n y
+1 -0.86 5 0
+2 -0.30 5 1
+3 -0.05 5 3
+4  0.73 5 5
+```
+
+Now, let's also assume a Gaussian prior with a certain mean and variance. That is,
+
+\[
+\begin{bmatrix}
+\alpha\\
+\beta
+\end{bmatrix}
+\sim N(\mu_{0}, \Sigma_{0})
+\]  
+and, moreover, that
+\[
+\mu_{0} = \begin{bmatrix}
+0\\
+10
+\end{bmatrix}
+\Sigma_{0} = \begin{bmatrix}
+2^{2} &12\\
+12&10^{2}\\
+\end{bmatrix}
+\]
+
+Since the jumping rule is the crux of the algorithm, we need to develop a function which evaluates the ration of two density samples. We can do this as follows:
+```r
+# density ratio function:
+density_ratio <- function(alpha_star = alpha_star, alpha = alpha, 
+                          beta_star = beta_star, beta = beta, x = x, 
+                          y = y, n = n) {
+# create mu vector and sigma matrix for prior density
+ mu <- c(0, 10)
+ sigma_matrix <- matrix(data = c(4, 12, 12, 100), nrow = 2)
+ # evaluate prior alpha, beta density
+ pr_1 <- dmvnorm(x = c(alpha_star, beta_star), mean = mu, sigma = sigma_matrix)
+ pr_0 <- dmvnorm(x = c(alpha, beta), mean = mu, sigma = sigma_matrix)
+ # compute log-likelihood
+ lp_1 <- bioassaylp(alpha = alpha_star, beta = beta_star, x = x, y = y, n = n)
+ lp_0 <- bioassaylp(alpha = alpha, beta = beta, x = x, y = y, n = n)
+ # compute posterior (sum of log-prior and log-likelihood)
+ posterior_1 <- sum(log(pr_1) + lp_1)
+ posterior_0 <- sum(log(pr_0) + lp_0)
+ # exponentiate to transform to natural scale
+ r <- exp((posterior_1) - (posterior_0))
+ # return result
+ return(r)
+}
+```
+Note the use of the log-scale to transform interactions onto the additive scale for ease of computation.
+
+
 
 ## The acceptance-rejection method
 Posted: (27th Dec, 2021)
