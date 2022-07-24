@@ -34,7 +34,6 @@ For instance, say we have some bioassay data that looks like this:
 ```
 
 Now, let's also assume a Gaussian prior with a certain mean and variance. That is,
-
 $$
 \begin{bmatrix}
 \alpha\\
