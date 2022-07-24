@@ -35,15 +35,15 @@ For instance, say we have some data that looks like this:
 
 Now, let's also assume a Gaussian prior with a certain mean and variance. That is,
 
-\[
+$$
 \begin{bmatrix}
 \alpha\\
 \beta
 \end{bmatrix}
 \sim N(\mu_{0}, \Sigma_{0})
-\]  
+$$  
 and, moreover, that
-\[
+$$  
 \mu_{0} = \begin{bmatrix}
 0\\
 10
@@ -52,9 +52,9 @@ and, moreover, that
 2^{2} &12\\
 12&10^{2}\\
 \end{bmatrix}
-\]
+$$
 
-Since the jumping rule is the crux of the algorithm, we need to develop a function which evaluates the ration of two density samples. We can do this as follows:
+Since the jumping rule is the crux of the algorithm, we can first develop a function which evaluates the ratio of two density samples. We can do this as follows:
 ```r
 # density ratio function:
 density_ratio <- function(alpha_star = alpha_star, alpha = alpha, 
@@ -80,6 +80,7 @@ density_ratio <- function(alpha_star = alpha_star, alpha = alpha,
 ```
 Note the use of the log-scale to transform interactions onto the additive scale for ease of computation.
 
+Now we can implement a function that runs a Metropolis algorithm which using the `density_ratio()` function.
 
 
 ## The acceptance-rejection method
