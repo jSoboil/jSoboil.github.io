@@ -24,7 +24,7 @@ The Metropolis algorithm is a general term for a Markov chain simulation method 
 
 The jumping rule assigns a new, *proposal* parameter value if a new, randomly sampled value induces a larger ratio between the target and proposal distribution compared to the previously sampled value (a larger value indicates that there is greater mass in the posterior at the new, proposed point). Specifically, this information is induced via the likelihoods (and priors) used to calculate the density ratio.
 
-For instance, say we have some data that looks like this:
+For instance, say we have some bioassay data that looks like this:
 ```r
       x n y
 1 -0.86 5 0
@@ -78,10 +78,89 @@ density_ratio <- function(alpha_star = alpha_star, alpha = alpha,
  return(r)
 }
 ```
-Note the use of the log-scale to transform interactions onto the additive scale for ease of computation.
-
+Note the use of the log-scale to transform interactions onto the additive scale for ease of computation. The log-likelihood is computed using the following function:
+```r
+function (alpha, beta, x, y, n) {
+ t <- alpha + outer(beta, x)
+ et <- exp(t)
+ z <- et/(1 + et)
+ eps <- 1e-12
+ z <- pmin(z, 1 - eps)
+ z <- pmax(z, eps)
+ lp <- rowSums(t(t(log(z)) * y) + t(t(log(1 - z)) * (n - y)))
+ return(lp)
+}
+```
 Now we can implement a function that runs a Metropolis algorithm which using the `density_ratio()` function.
 
+```r
+# Metropolis algorithm:
+Metropolis_bioassay <- function(x = x, y = y, n = n, sigma_jump_alpha,                                         sigma_jump_beta, iter, n_chains, 
+                                warmup = warmup) {
+ # create temp objects and start algorithm
+ alpha <- array(NA, c(iter, n_chains)) # create alpha array
+ beta <- array(NA, c(iter, n_chains)) # create beta array
+ sims <- array(NA, c(iter, n_chains, 3)) # create temp sims array
+ # set dimnames of temp sims array
+ dimnames(sims) <- list(NULL, NULL, c("alpha", "beta", "p_jump"))
+ # iterate initial values over m chains
+ for (m in 1:n_chains) {
+  # initialise alpha values for each chain
+  alpha[1, m] <- runif(n = 1, min = -5, max = 5)
+  # initialise beta values for each chain
+  beta[1, m] <- runif(n = 1, min = 15, max = 25)
+  # store the above initial parameter values in temp sims array
+  sims[1, m, "alpha"] <- alpha[1, m]
+  sims[1, m, "beta"] <- beta[1, m]
+  # set initial acceptance probability across all parameters
+  sims[1, m, "p_jump"] <- 1
+  # simulate n x k-parameters
+  for (t in 2:iter) {
+   # sample proposal distributions for alpha and beta parameters
+   alpha_star <- rnorm(n = 1, mean = alpha[t - 1, m], sd = sigma_jump_alpha)
+   beta_star <- rnorm(n = 1, mean = beta[t - 1, m], sd = sigma_jump_beta)
+   # compute density ratio
+   r <- density_ratio(alpha_star = alpha_star, alpha = alpha[t - 1, m],
+                      beta_star = beta_star, beta = beta[t - 1, m],
+                      x = x, y = y, n = n)
+   # update posterior parameters according to r jump rule
+   if (min(r, 1) > runif(n = 1)) {
+    # if min(r, 1) > rng, accept proposal
+    alpha[t, m] <- alpha_star
+    beta[t, m] <- beta_star
+    } else {
+     # else if min(r, 1) < rng, resample previous value
+     alpha[t, m] <- alpha[t - 1, m]
+     beta[t, m] <- beta[t - 1, m]
+    }
+    # store acceptance probability
+    p_jump <- min(r, 1)
+    # store updated posterior parameter values in sims array
+    sims[t, m, ] <- c(alpha[t, m], beta[t, m], p_jump)
+   }
+  }
+  # omit warmup samples
+  sims <- sims[(warmup + 1):iter, , ]
+  # return n x k sims array of posterior parameter values
+  return(sims)
+}
+```
+
+Be aware that the final proposal distribution was tinkered according to the value of the acceptance/rejection probability, which is influenced by the size of the $\alpha$ jump for each parameter. As noted in [BDA](http://www.stat.columbia.edu/~gelman/book/), it can be shown that optimal rejection rate is $55 − 77\%$, so that on even the optimal case quite many of the samples are repeated samples. However, a high number of rejections is acceptable since the accepted proposals are then, on average, further away from the previous point. It is better to jump further away $23-45\%$ of time than to more often jump really close.
+
+The average rejection probability should vary somewhere around these values and the standard deviation for each parameter’s proposal distribution was tinkered accordingly until a satisfactory value was obtained.
+```r
+df_pjump <- as.data.frame(sims[, , "p_jump"])
+df_pjump <- df_pjump |> 
+ gather("col_ID", "Value")
+1 - mean(df_pjump$Value)
+```
+```
+[1] 0.645723
+```
+Et voilà!
+
+---
 
 ## The acceptance-rejection method
 Posted: (27th Dec, 2021)
