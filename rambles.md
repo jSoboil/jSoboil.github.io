@@ -17,6 +17,7 @@ Some intermittent thoughts, primarily technical.
 ---
 ## The Metropolis-Hastings Algorithm
 Posted: (30th June, 2022)
+
 Time has truly flown by this year! It's been a while since I last posted. Admittedly, I have been on a roller-coaster - a good one! I've moved to the United Kingdom. My wife and I have secured a beautiful apartment for the next two years, and I have accepted the position of Senior Analyst at [Cogentia Healthcare Consulting](https://cogentia.co.uk). Between that, and still trying to do some touristy things here and there - like visiting the beautiful Regent's Park (it was weird to hear lions roaring so far away from home) and the extremely busy Camden Market - I have also managed to partake and complete the Bayesian Data Analysis course for 'global south' students, organised by Prof [Aki Vehtari](https://users.aalto.fi/~ave/). Yes, ***the guy who helped write BDA3***. Pretty cool!
 
 I learnt a *lot* over the course of a few months, but one of the most interesting things for me was observing how almost every peer I reviewed had a *different way of solving the weekly problem*. I found it fascinating to see how my peers structured their code and tackled the problem. I found myself often thinking, "My god, that is an awesome and much more efficient way to do it!" One of the really memorable things that I learnt over the course was explicitly writing my own Metropolis-Hastings Algorithm. In line with the past themes of my posts, I thought it fitting to discuss it.
