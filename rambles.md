@@ -24,7 +24,8 @@ I learnt a *lot* over the course of a few months, but one of the most interestin
 
 The Metropolis algorithm is a general term for a Markov chain simulation method that can be used to sample from Bayesian posterior distributions. Simply, given a posterior distribution that is not straightforward to sample from analytically, the Metropolis algorithm can approximate the posterior via information obtained from a ratio of symmetric densities. The central mechanic of the algorithm is the *jumping rule*.
 
-The jumping rule assigns a new, *proposal* parameter value if a new, randomly sampled value induces a larger ratio between the target and proposal distribution compared to the previously sampled value (a larger value indicates that there is greater mass or density in the posterior at the new, proposed point). Specifically, information about the shape of the posterior, induced via the likelihoods (and priors) used to assess the density ratio, guides the random walk. For instance, say we have some bioassay data that looks like this:
+The jumping rule assigns a new, *proposal* parameter value if a new, randomly uniform sampled value induces a larger ratio between the target and proposal distribution compared to the previously sampled value (i.e., a larger value indicates that there is greater mass or density in the posterior at the new, proposed point). Specifically, information about the shape of the posterior, induced via the likelihoods (and priors), guides the random walk. For instance, say we have some bioassay data that looks like this:
+
 ```r
       x n y
 1 -0.86 5 0
@@ -34,15 +35,17 @@ The jumping rule assigns a new, *proposal* parameter value if a new, randomly sa
 ```
 
 Now, let's also assume a Gaussian prior with a certain mean and variance. That is,
-\n
+
 $$
 \begin{bmatrix}
 \alpha\\
 \beta
 \end{bmatrix}
 \sim N(\mu_{0}, \Sigma_{0})
-$$\n
-and, moreover, that\n
+$$
+
+and, moreover, that
+
 $$  
 \mu_{0} = \begin{bmatrix}
 0\\
@@ -53,8 +56,9 @@ $$
 12&10^{2}\\
 \end{bmatrix}
 $$
-\n
+
 Since the jumping rule is the crux of the algorithm, we can first develop a function which evaluates the ratio of two density samples. We can do this as follows:
+
 ```r
 # density ratio function:
 density_ratio <- function(alpha_star = alpha_star, alpha = alpha, 
@@ -91,7 +95,7 @@ function (alpha, beta, x, y, n) {
  return(lp)
 }
 ```
-Now we can implement a function that runs a Metropolis algorithm which using the `density_ratio()` function.
+Now we can implement a function which runs the Metropolis algorithm using the `density_ratio()` function we created above.
 
 ```r
 # Metropolis algorithm:
