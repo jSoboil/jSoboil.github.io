@@ -4,13 +4,165 @@ Some intermittent thoughts, primarily technical.
 
 ---
 
-### Table of Contents
+## Table of Contents
+- [The Metropolis-Hastings Algorithm](#the-metropolis-hastings-algorithm)
+<br>
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
 <br>
 - [Some basic simulation methods](#some-basic-simulation-methods)
 <br>
 - [Reflections on the basic properties of numbers](#reflections-on-the-basic-properties-of-numbers)
 <br>
+
+---
+## The Metropolis-Hastings Algorithm
+Posted: (30th June, 2022)
+
+Time has truly flown by this year! It's been a while since I last posted. Admittedly, I have been on a roller-coaster - a good one! I've moved to the United Kingdom. My wife and I have secured a beautiful apartment for the next two years, and I have accepted the position of Senior Analyst at [Cogentia Healthcare Consulting](https://cogentia.co.uk). Between that, and still trying to do some touristy things here and there - like visiting the beautiful Regent's Park (it was weird to hear lions roaring so far away from home) and the extremely busy Camden Market - I have also managed to partake and complete the Bayesian Data Analysis course for 'global south' students, organised by Prof [Aki Vehtari](https://users.aalto.fi/~ave/). Yes, ***the guy who helped write BDA3***. Pretty cool!
+
+I learnt a *lot* over the course of a few months, but one of the most interesting things for me was observing how almost every peer I reviewed had a *different way of solving the weekly problem*. I found it fascinating to see how my peers structured their code and tackled the problem. I found myself often thinking, "My god, that is an awesome and much more efficient way to do it!" One of the really memorable things that I learnt over the course was explicitly writing my own Metropolis-Hastings Algorithm. In line with the past themes of my posts, I thought it fitting to discuss it.
+
+The Metropolis algorithm is a general term for a Markov chain simulation method that can be used to sample from Bayesian posterior distributions. Simply, given a posterior distribution that is not straightforward to sample from analytically, the Metropolis algorithm can approximate the posterior via information obtained from a ratio of symmetric densities. The central mechanic of the algorithm is the *jumping rule*.
+
+The jumping rule assigns a new, *proposal* parameter value if a new, randomly uniform sampled value induces a larger ratio between the target and proposal distribution compared to the previously sampled value (i.e., a larger value indicates that there is greater mass or density in the posterior at the new, proposed point). Specifically, information about the shape of the posterior, induced via the likelihoods (and priors), guides the random walk. For instance, say we have some bioassay data that looks like this:
+
+```r
+      x n y
+1 -0.86 5 0
+2 -0.30 5 1
+3 -0.05 5 3
+4  0.73 5 5
+```
+
+Now, let's also assume a Gaussian prior with a certain mean and variance. That is,
+
+$$
+\begin{bmatrix}
+\alpha\\
+\beta
+\end{bmatrix}
+\sim N(\mu_{0}, \Sigma_{0})
+$$
+
+and, moreover, that
+
+$$  
+\mu_{0} = \begin{bmatrix}
+0\\
+10
+\end{bmatrix}
+\Sigma_{0} = \begin{bmatrix}
+2^{2} &12\\
+12&10^{2}\\
+\end{bmatrix}
+$$
+
+Since the jumping rule is the crux of the algorithm, we can first develop a function which evaluates the ratio of two density samples. We can do this as follows:
+
+```r
+# density ratio function:
+density_ratio <- function(alpha_star = alpha_star, alpha = alpha, 
+                          beta_star = beta_star, beta = beta, x = x, 
+                          y = y, n = n) {
+# create mu vector and sigma matrix for prior density
+ mu <- c(0, 10)
+ sigma_matrix <- matrix(data = c(4, 12, 12, 100), nrow = 2)
+ # evaluate prior alpha, beta density
+ pr_1 <- dmvnorm(x = c(alpha_star, beta_star), mean = mu, sigma = sigma_matrix)
+ pr_0 <- dmvnorm(x = c(alpha, beta), mean = mu, sigma = sigma_matrix)
+ # compute log-likelihood
+ lp_1 <- bioassaylp(alpha = alpha_star, beta = beta_star, x = x, y = y, n = n)
+ lp_0 <- bioassaylp(alpha = alpha, beta = beta, x = x, y = y, n = n)
+ # compute posterior (sum of log-prior and log-likelihood)
+ posterior_1 <- sum(log(pr_1) + lp_1)
+ posterior_0 <- sum(log(pr_0) + lp_0)
+ # exponentiate to transform to natural scale
+ r <- exp((posterior_1) - (posterior_0))
+ # return result
+ return(r)
+}
+```
+Note the use of the log-scale to transform interactions onto the additive scale for ease of computation. The log-likelihood is computed using the following function:
+```r
+function (alpha, beta, x, y, n) {
+ t <- alpha + outer(beta, x)
+ et <- exp(t)
+ z <- et/(1 + et)
+ eps <- 1e-12
+ z <- pmin(z, 1 - eps)
+ z <- pmax(z, eps)
+ lp <- rowSums(t(t(log(z)) * y) + t(t(log(1 - z)) * (n - y)))
+ return(lp)
+}
+```
+Now we can implement a function which runs the Metropolis algorithm using the `density_ratio()` function we created above.
+
+```r
+# Metropolis algorithm:
+Metropolis_bioassay <- function(x = x, y = y, n = n, sigma_jump_alpha,                                         sigma_jump_beta, iter, n_chains, 
+                                warmup = warmup) {
+ # create temp objects and start algorithm
+ alpha <- array(NA, c(iter, n_chains)) # create alpha array
+ beta <- array(NA, c(iter, n_chains)) # create beta array
+ sims <- array(NA, c(iter, n_chains, 3)) # create temp sims array
+ # set dimnames of temp sims array
+ dimnames(sims) <- list(NULL, NULL, c("alpha", "beta", "p_jump"))
+ # iterate initial values over m chains
+ for (m in 1:n_chains) {
+  # initialise alpha values for each chain
+  alpha[1, m] <- runif(n = 1, min = -5, max = 5)
+  # initialise beta values for each chain
+  beta[1, m] <- runif(n = 1, min = 15, max = 25)
+  # store the above initial parameter values in temp sims array
+  sims[1, m, "alpha"] <- alpha[1, m]
+  sims[1, m, "beta"] <- beta[1, m]
+  # set initial acceptance probability across all parameters
+  sims[1, m, "p_jump"] <- 1
+  # simulate n x k-parameters
+  for (t in 2:iter) {
+   # sample proposal distributions for alpha and beta parameters
+   alpha_star <- rnorm(n = 1, mean = alpha[t - 1, m], sd = sigma_jump_alpha)
+   beta_star <- rnorm(n = 1, mean = beta[t - 1, m], sd = sigma_jump_beta)
+   # compute density ratio
+   r <- density_ratio(alpha_star = alpha_star, alpha = alpha[t - 1, m],
+                      beta_star = beta_star, beta = beta[t - 1, m],
+                      x = x, y = y, n = n)
+   # update posterior parameters according to r jump rule
+   if (min(r, 1) > runif(n = 1)) {
+    # if min(r, 1) > rng, accept proposal
+    alpha[t, m] <- alpha_star
+    beta[t, m] <- beta_star
+    } else {
+     # else if min(r, 1) < rng, resample previous value
+     alpha[t, m] <- alpha[t - 1, m]
+     beta[t, m] <- beta[t - 1, m]
+    }
+    # store acceptance probability
+    p_jump <- min(r, 1)
+    # store updated posterior parameter values in sims array
+    sims[t, m, ] <- c(alpha[t, m], beta[t, m], p_jump)
+   }
+  }
+  # omit warmup samples
+  sims <- sims[(warmup + 1):iter, , ]
+  # return n x k sims array of posterior parameter values
+  return(sims)
+}
+```
+
+Be aware that the final proposal distribution was tinkered according to the value of the acceptance/rejection probability, which is influenced by the size of the $\alpha$ jump for each parameter. As noted in [BDA](http://www.stat.columbia.edu/~gelman/book/), it can be shown that optimal rejection rate is $55 − 77\%$, so that on even the optimal case quite many of the samples are repeated samples. However, a high number of rejections is acceptable since the accepted proposals are then, on average, further away from the previous point. It is better to jump further away $23-45\%$ of time than to more often jump really close.
+
+The average rejection probability should vary somewhere around these values and the standard deviation for each parameter’s proposal distribution was tinkered accordingly until a satisfactory value was obtained.
+```r
+df_pjump <- as.data.frame(sims[, , "p_jump"])
+df_pjump <- df_pjump |> 
+ gather("col_ID", "Value")
+1 - mean(df_pjump$Value)
+```
+```
+[1] 0.645723
+```
+Et voilà!
 
 ---
 
