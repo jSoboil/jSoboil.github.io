@@ -5,6 +5,8 @@ Some intermittent thoughts, primarily technical.
 ---
 
 ## Table of Contents
+- [A Brief Update](#a-brief-update)
+br()
 - [The Metropolis-Hastings Algorithm](#the-metropolis-hastings-algorithm)
 <br>
 - [The acceptance-rejection method](#the-acceptance-rejection-method)
