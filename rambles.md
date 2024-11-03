@@ -15,6 +15,12 @@ Some intermittent thoughts, primarily technical.
 <br>
 
 ---
+## A Brief Update
+Posted: (3rd Nov, 2024)
+
+It's been a very long time since posting, but I thought I'd add a brief update. In the coming months, I'll be exploring validation tests for the blendR package, which is an `R` package for blended survival analysis. The motivation is that it is a very intuitive method for flexible survival analysis however, it lacks the necessary validity checks required for HTA decision making.
+Hopefully, I'll be updating this page soon with some examples of the method and some progress on the development of some statistical tests.
+
 ## The Metropolis-Hastings Algorithm
 Posted: (30th June, 2022)
 
